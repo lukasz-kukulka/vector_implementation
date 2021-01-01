@@ -310,7 +310,7 @@ public:
     }
 
     value_type front() {
-        // TO DO 
+        return *poiterAlloc_; 
     }
 
     value_type back() {
