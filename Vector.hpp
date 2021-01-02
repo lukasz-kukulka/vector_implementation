@@ -305,9 +305,9 @@ public:
         return begin(); 
     }
 
-    // const_reverse_iterator crend() const {
-    //     // TO DO 
-    // }
+    const_reverse_iterator crend() const {
+        return cbegin();  
+    }
 
     value_type front() {
         // TO DO 
