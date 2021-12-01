@@ -3,7 +3,7 @@ project(Vector)
 
 
 set(FILES
-    vector.cpp
+    vector.cpp)
 
 add_library(${PROJECT_NAME}-lib ${FILES})
 add_executable(${PROJECT_NAME} main.cpp)

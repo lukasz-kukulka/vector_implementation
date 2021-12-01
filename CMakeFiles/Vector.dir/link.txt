@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Vector.dir/main.cpp.o -o Vector  libVector-lib.a 
