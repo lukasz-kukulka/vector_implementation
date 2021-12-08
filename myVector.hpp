@@ -233,6 +233,10 @@ public:
         alloc_.deallocate(poiterAlloc_[size_ - 1], capacity_ - size_);
     }
 
+    void clear() {
+        traits_t::destroy(poiterAlloc_);
+    }
+
 private:
     bool checkCapacity() {
         if (size_ < capacity_) {
