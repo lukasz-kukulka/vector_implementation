@@ -1,8 +1,9 @@
 #pragma once
 
 #include <type_traits>
+#include <memory>
 
-template<typename Type>
+template<typename Type, class Allocator = std::allocator<Type>>
 class vector {
 public:
 
