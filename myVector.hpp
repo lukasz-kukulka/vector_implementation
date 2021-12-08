@@ -83,6 +83,10 @@ public:
             traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
             iteratorList++;
         }
+        std::cout << "poiterAlloc_ = " << poiterAlloc_[0] << "       *poiterAlloc_ = " << *poiterAlloc_ << "        &poiterAlloc_ = " << &poiterAlloc_[0] << '\n';  
+        std::cout << "poiterAlloc_ = " << poiterAlloc_[1] << "       *poiterAlloc_ = " << *poiterAlloc_ + 1 << "        &poiterAlloc_ = " << &poiterAlloc_[1000] << '\n';
+        std::cout << "poiterAlloc_ = " << poiterAlloc_[2] << "       *poiterAlloc_ = " << *poiterAlloc_ + 2 << "        &poiterAlloc_ = " << &poiterAlloc_[2] << '\n';  
+        std::cout << capacity() << '\n';
     }
     myVector(const myVector& copy) 
         : capacity_(copy.capacity_)
@@ -223,6 +227,10 @@ public:
     void reserve(size_t space) {
         poiterAlloc_ = traits_t::allocate(alloc_, space);
         capacity_ = space;
+    }
+
+    void shrink_to_fit() {
+        alloc_.deallocate(poiterAlloc_[size_ - 1], capacity_ - size_);
     }
 
 private:
