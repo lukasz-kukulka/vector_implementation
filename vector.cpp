@@ -4,3 +4,7 @@ template<typename Type, class Allocator = std::allocator<Type>>
 vector<Type>::vector() {
 
 }
+
+vector::~vector() {
+    
+}
