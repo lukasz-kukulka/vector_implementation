@@ -4,11 +4,11 @@
 #include <memory>
 
 template<typename Type, class Allocator = std::allocator<Type>>
-class vector {
+class myVector {
 public:
-    vector() = default;
-    ~vector();
+    myVector();
+    ~myVector();
 private:
-    uint size_;
-    uint capacity_
+    uint size_ {};
+    uint capacity_ {};
 };
