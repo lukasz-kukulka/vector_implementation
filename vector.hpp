@@ -9,5 +9,6 @@ public:
     vector() = default;
     ~vector();
 private:
-
+    uint size_;
+    uint capacity_
 };
