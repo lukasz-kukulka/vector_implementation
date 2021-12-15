@@ -6,9 +6,15 @@
 template<typename Type, class Allocator = std::allocator<Type>>
 class myVector {
 public:
-    myVector();
+    myVector() {
+        
+    }
+    myVector(int size) {
+        array = new Type[size];
+    }
     ~myVector();
 private:
-    uint size_ {};
-    uint capacity_ {};
+    int size_ {};
+    int capacity_ {};
+    Type* array { nullptr };
 };
