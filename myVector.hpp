@@ -25,10 +25,14 @@
         // back 
         // data 
         // Iterators 
-        // begincbegin 
-        // end cend 
-        // rbegincrbegin 
-        // rendcrend 
+        // begin DONE
+        // cbegin 
+        // end DONE
+        // cend 
+        // rbegin 
+        // crbegin 
+        // rend 
+        // crend 
         // Capacity DONE
         // empty 
         // size 
@@ -150,7 +154,15 @@ public:
     }
 
     Type* begin() {
+        // TO DO 
+    }
 
+    Type* end() {
+        // TO DO 
+    } 
+
+    Type front() {
+        // TO DO 
     }
 private:
     bool checkCapacity() {
