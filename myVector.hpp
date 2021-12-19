@@ -9,12 +9,13 @@ public:
     myVector() {
         
     }
-    myVector(int size) {
-        array = new Type[size];
+    myVector(size_t size) {
+        alloc_.allocate(size);
     }
     ~myVector();
 private:
-    int size_ {};
-    int capacity_ {};
-    Type* array { nullptr };
+    size_t size_ {};
+    size_t capacity_ {};
+    std::allocator<Type>alloc_;
+    Type* poiterAlloc_ { nullptr };
 };
