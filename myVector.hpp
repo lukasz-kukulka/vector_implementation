@@ -10,8 +10,8 @@
 
         // konsruktor pusty DONE
         // konstruktor z wielkoscia DONE
-        // konstruktor z wielkoscia i inicjalizowanymi elementami done
-        // konstruktor initializer list
+        // konstruktor z wielkoscia i inicjalizowanymi elementami DONE
+        // konstruktor initializer list DONE
         // konstruktor kopiujący
         // konstruktor przenoszący
         // operator przypisania kopiujacy
@@ -82,6 +82,12 @@ public:
             iteratorList++;
         }
     }
+    myVector(const myVector& copy) {
+        capacity_ = copy.capacity_;
+        alloc_ = copy.alloc_;
+        poiterAlloc_ = copy.poiterAlloc_;
+
+    }
     ~myVector() {
         alloc_.deallocate(poiterAlloc_, capacity_);
     }
@@ -90,7 +96,8 @@ public:
         return capacity_;
     }
 private:
-    size_t capacity_ {};
+    size_t size { };
+    size_t capacity_ { };
     std::allocator<Type>alloc_;
     Type* poiterAlloc_ { nullptr };
 };
