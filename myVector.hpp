@@ -96,7 +96,13 @@ public:
         return capacity_;
     }
 private:
-    size_t size { };
+    bool checkCapacity() {
+        if (size_ < capacity_) {
+            return true;
+        }
+        return false;
+    }
+    size_t size_ { };
     size_t capacity_ { };
     std::allocator<Type>alloc_;
     Type* poiterAlloc_ { nullptr };
