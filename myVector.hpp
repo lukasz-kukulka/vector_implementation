@@ -8,6 +8,46 @@
         // poiterAlloc_ = traits_t::allocate(alloc_, size); 
         // std::cout << "poiterAlloc_ = " << poiterAlloc_[3] << "       *poiterAlloc_ = " << *poiterAlloc_<< "        &poiterAlloc_ = " << &poiterAlloc_[3] << '\n';
 
+        // konsruktor pusty DONE
+        // konstruktor z wielkoscia DONE
+        // konstruktor z wielkoscia i inicjalizowanymi elementami
+        // konstruktor initializer list
+        // konstruktor kopiujący
+        // konstruktor przenoszący
+        // operator przypisania kopiujacy
+        // operator przypisania przenoszący
+        // assign 
+        // get_allocator 
+        // Element access 
+        // at 
+        // operator[] 
+        // front 
+        // back 
+        // data 
+        // Iterators 
+        // begincbegin 
+        // end cend 
+        // rbegincrbegin 
+        // rendcrend 
+        // Capacity 
+        // empty 
+        // size 
+        // max_size 
+        // reserve 
+        // capacity 
+        // shrink_to_fit 
+        // Modifiers 
+        // clear 
+        // insert 
+        // emplace 
+        // erase 
+        // push_back 
+        // emplace_back 
+        // pop_back 
+        // resize 
+        // swap 
+
+
 #include <type_traits>
 #include <memory>
 #include <iostream>
@@ -22,6 +62,14 @@ public:
         capacity_ += size;
         using traits_t = std::allocator_traits<decltype(alloc_)>;
         poiterAlloc_ = traits_t::allocate(alloc_, size);
+    }
+    myVector(size_t size, Type element) {
+        capacity_ += size;
+        using traits_t = std::allocator_traits<decltype(alloc_)>;
+        poiterAlloc_ = traits_t::allocate(alloc_, size);
+        for (size_t i = 0; i < size; i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + i, element);   
+        }
     }
     ~myVector() {
         alloc_.deallocate(poiterAlloc_, capacity_);
