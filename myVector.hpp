@@ -164,6 +164,10 @@ public:
     Type front() {
         // TO DO 
     }
+
+    Type back() {
+        // TO DO 
+    }
 private:
     bool checkCapacity() {
         if (size_ < capacity_) {
