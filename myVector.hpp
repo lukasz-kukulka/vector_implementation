@@ -92,6 +92,15 @@ public:
     , poiterAlloc_(copy.poiterAlloc_)
     {
     }
+
+    myVector& operator=(const myVector& copy) 
+    {    
+        capacity_ = copy.capacity_;
+        alloc_ = copy.alloc_;
+        poiterAlloc_ = copy.poiterAlloc_;
+        return *this;
+    }
+
     ~myVector() {
         alloc_.deallocate(poiterAlloc_, capacity_);
     }
