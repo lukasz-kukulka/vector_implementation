@@ -49,6 +49,7 @@
         // wyjatki
 
 #include <initializer_list>
+#include <iterator>
 #include <type_traits>
 #include <memory>
 #include <iostream>
@@ -76,17 +77,20 @@ public:
         capacity_ += list.size();
         using traits_t = std::allocator_traits<decltype(alloc_)>;
         poiterAlloc_ = traits_t::allocate(alloc_, capacity_);
+        // for(std::initializer_list<decltype(this)>::iterator i = list.begin(); i < list.end(); i++) {
+
+        // }
         auto iteratorList { 0 };
         for (const auto& ele : list) {
             traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
             iteratorList++;
         }
     }
-    myVector(const myVector& copy) {
-        capacity_ = copy.capacity_;
-        alloc_ = copy.alloc_;
-        poiterAlloc_ = copy.poiterAlloc_;
-
+    myVector(const myVector& copy) 
+    : capacity_(copy.capacity_)
+    , alloc_(copy.alloc_)
+    , poiterAlloc_(copy.poiterAlloc_)
+    {
     }
     ~myVector() {
         alloc_.deallocate(poiterAlloc_, capacity_);
