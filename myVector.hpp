@@ -15,7 +15,7 @@
         // konstruktor kopiujący DONE
         // konstruktor przenoszący DONE
         // operator przypisania kopiujacy DONE
-        // operator przypisania przenoszący
+        // operator przypisania przenoszący DONE
         // assign 
         // get_allocator 
         // Element access 
@@ -115,7 +115,7 @@ public:
         return *this;
     }
 
-    myVector& operator=(const myVector&& move) {
+    myVector& operator=(const myVector&& move) noexcept {
         if (this != move) {
             if (capacity_ < 0) {
                 alloc_.deallocate(poiterAlloc_, capacity_);
