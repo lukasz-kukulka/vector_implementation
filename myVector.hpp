@@ -90,6 +90,7 @@ public:
     : capacity_(copy.capacity_)
     , alloc_(copy.alloc_)
     , poiterAlloc_(copy.poiterAlloc_)
+    , size_(copy.size_)
     {
     }
 
@@ -97,6 +98,7 @@ public:
     : capacity_(move.capacity_)
     , alloc_(move.alloc_)
     , poiterAlloc_(move.poiterAlloc_)
+    , size_(move.size_)
     {
         move.alloc_ = 0;
         move.capacity_ = 0;
@@ -109,6 +111,7 @@ public:
         capacity_ = copy.capacity_;
         alloc_ = copy.alloc_;
         poiterAlloc_ = copy.poiterAlloc_;
+        size_ = copy.size_;
         return *this;
     }
 
