@@ -93,6 +93,17 @@ public:
     {
     }
 
+    myVector(const myVector&& move) noexcept
+    : capacity_(move.capacity_)
+    , alloc_(move.alloc_)
+    , poiterAlloc_(move.poiterAlloc_)
+    {
+        move.alloc_ = 0;
+        move.capacity_ = 0;
+        move.poiterAlloc_ = nullptr;
+        move.size_ = 0;
+    }
+
     myVector& operator=(const myVector& copy) 
     {    
         capacity_ = copy.capacity_;
