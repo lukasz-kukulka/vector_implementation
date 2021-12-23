@@ -12,9 +12,9 @@
         // konstruktor z wielkoscia DONE
         // konstruktor z wielkoscia i inicjalizowanymi elementami DONE
         // konstruktor initializer list DONE
-        // konstruktor kopiujący
-        // konstruktor przenoszący
-        // operator przypisania kopiujacy
+        // konstruktor kopiujący DONE
+        // konstruktor przenoszący DONE
+        // operator przypisania kopiujacy DONE
         // operator przypisania przenoszący
         // assign 
         // get_allocator 
@@ -29,7 +29,7 @@
         // end cend 
         // rbegincrbegin 
         // rendcrend 
-        // Capacity 
+        // Capacity DONE
         // empty 
         // size 
         // max_size 
@@ -112,6 +112,23 @@ public:
         alloc_ = copy.alloc_;
         poiterAlloc_ = copy.poiterAlloc_;
         size_ = copy.size_;
+        return *this;
+    }
+
+    myVector& operator=(const myVector&& move) {
+        if (this != move) {
+            if (capacity_ < 0) {
+                alloc_.deallocate(poiterAlloc_, capacity_);
+            }
+            capacity_ = move.capacity_;
+            alloc_ = move.alloc_;
+            poiterAlloc_ = move.poiterAlloc_;
+            size_ = move.size_;
+            move.alloc_ = 0;
+            move.capacity_ = 0;
+            move.poiterAlloc_ = nullptr;
+            move.size_ = 0;
+        }
         return *this;
     }
 
