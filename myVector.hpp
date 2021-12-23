@@ -157,6 +157,10 @@ public:
         // TO DO 
     }
 
+    Type* cbegin() const {
+        // TO DO 
+    }
+
     Type* end() {
         // TO DO 
     } 
@@ -168,6 +172,8 @@ public:
     Type back() {
         // TO DO 
     }
+
+
 private:
     bool checkCapacity() {
         if (size_ < capacity_) {
