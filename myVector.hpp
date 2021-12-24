@@ -165,6 +165,10 @@ public:
         // TO DO 
     } 
 
+    Type* cend() const {
+        // TO DO 
+    } 
+
     Type front() {
         // TO DO 
     }
