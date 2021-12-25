@@ -161,6 +161,10 @@ public:
         // TO DO 
     }
 
+    Type* rbegin() const {
+        // TO DO 
+    }
+
     Type* end() {
         // TO DO 
     } 
