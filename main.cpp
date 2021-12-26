@@ -4,8 +4,8 @@
 #include <iostream>
 
 int main() {
-    std::vector<int>v;
-    std::cout << v.capacity() << " - " << v.size() << '\n';
+    //std::vector<int> v;
+    // std::cout << v.capacity() << " - " << v.size() << '\n';
     myVector<int>v1(1);
     myVector<int>v2(10, 33);
     myVector<int>v3({12, 22, 44, 66, 77});

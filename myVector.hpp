@@ -136,8 +136,21 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
     }
 
+
+    void assign(size_t size, const Type& data) {
+        // TO DO 
+    }
+
+    void assign(const Type& data) {
+        // TO DO 
+    }
+
     size_t capacity() const{
         return capacity_;
+    }
+
+    Type* begin() {
+
     }
 private:
     bool checkCapacity() {
