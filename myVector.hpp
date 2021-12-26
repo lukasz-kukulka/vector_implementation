@@ -181,6 +181,10 @@ public:
         // TO DO 
     }
 
+    Type* rend() const {
+        // TO DO 
+    }
+
     Type front() {
         // TO DO 
     }
