@@ -137,6 +137,10 @@ public:
         return *this;
     }
 
+    Type& operator[](const myVector& element) {
+        return *poiterAlloc_[element];
+    }
+
     ~myVector() {
         alloc_.deallocate(poiterAlloc_, capacity_);
     }
