@@ -65,19 +65,16 @@ public:
         
     }
     myVector(size_t size) {
-        capacity_ += size;
-        poiterAlloc_ = traits_t::allocate(alloc_, capacity_);
+        reserve(size);
     }
     myVector(size_t size, Type element) {
-        capacity_ += size;
-        poiterAlloc_ = traits_t::allocate(alloc_, capacity_);
+        reserve(size);
         for (size_t i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, element);   
         }
     }
     myVector(std::initializer_list<Type> list) {
-        capacity_ += list.size();
-        poiterAlloc_ = traits_t::allocate(alloc_, capacity_);
+        reserve(list.size());
         // for(std::initializer_list<decltype(this)>::iterator i = list.begin(); i < list.end(); i++) {
 
         // }
@@ -88,18 +85,18 @@ public:
         }
     }
     myVector(const myVector& copy) 
-    : capacity_(copy.capacity_)
-    , alloc_(copy.alloc_)
-    , poiterAlloc_(copy.poiterAlloc_)
-    , size_(copy.size_)
+        : capacity_(copy.capacity_)
+        , alloc_(copy.alloc_)
+        , poiterAlloc_(copy.poiterAlloc_)
+        , size_(copy.size_)
     {
     }
 
     myVector(const myVector&& move) noexcept
-    : capacity_(move.capacity_)
-    , alloc_(move.alloc_)
-    , poiterAlloc_(move.poiterAlloc_)
-    , size_(move.size_)
+        : capacity_(move.capacity_)
+        , alloc_(move.alloc_)
+        , poiterAlloc_(move.poiterAlloc_)
+        , size_(move.size_)
     {
         move.alloc_ = 0;
         move.capacity_ = 0;
@@ -221,6 +218,11 @@ public:
 
     size_t max_size() const {
         return traits_t::max_size();
+    }
+
+    void reserve(size_t space) {
+        poiterAlloc_ = traits_t::allocate(alloc_, space);
+        capacity_ = space;
     }
 
 private:
