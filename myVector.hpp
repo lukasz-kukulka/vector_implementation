@@ -57,6 +57,7 @@
 #include <type_traits>
 #include <memory>
 #include <iostream>
+#include <exception>
 
 template<typename Type, class Allocator = std::allocator<Type>>
 class myVector {
@@ -197,6 +198,11 @@ public:
         return alloc_;
     }
 
+    void at(size_t size) {
+        if (size > size_) {
+            throw std::out_of_range("Out of range");
+        }
+    }
 
 private:
     bool checkCapacity() {
