@@ -24,7 +24,6 @@
         // front 
         // back 
         // data 
-        // Iterators 
         // begin DONE
         // cbegin 
         // end DONE
@@ -209,10 +208,14 @@ public:
     }
 
     Type* data() {
-        if (poiterAlloc_ != nullptr) {
+        if (empty()) {
             return &front();
         }
         return nullptr;
+    }
+
+    bool empty() {
+        return poiterAlloc_ == nullptr;
     }
 
 private:
