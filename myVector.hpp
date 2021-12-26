@@ -177,11 +177,11 @@ public:
         // TO DO 
     } 
 
-    Type* rend() const {
+    Type* rend() {
         // TO DO 
     }
 
-    Type* rend() const {
+    Type* crend() const {
         // TO DO 
     }
 
@@ -191,6 +191,10 @@ public:
 
     Type back() {
         // TO DO 
+    }
+
+    std::allocator<Type> get_allocator() {
+        return alloc_;
     }
 
 
