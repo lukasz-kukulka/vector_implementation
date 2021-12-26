@@ -208,6 +208,13 @@ public:
         }
     }
 
+    Type* data() {
+        if (poiterAlloc_ != nullptr) {
+            return &front();
+        }
+        return nullptr;
+    }
+
 private:
     bool checkCapacity() {
         if (size_ < capacity_) {
