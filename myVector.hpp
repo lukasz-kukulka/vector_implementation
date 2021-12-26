@@ -66,12 +66,10 @@ public:
     }
     myVector(size_t size) {
         capacity_ += size;
-        using traits_t = std::allocator_traits<decltype(alloc_)>;
         poiterAlloc_ = traits_t::allocate(alloc_, capacity_);
     }
     myVector(size_t size, Type element) {
         capacity_ += size;
-        using traits_t = std::allocator_traits<decltype(alloc_)>;
         poiterAlloc_ = traits_t::allocate(alloc_, capacity_);
         for (size_t i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, element);   
@@ -79,7 +77,6 @@ public:
     }
     myVector(std::initializer_list<Type> list) {
         capacity_ += list.size();
-        using traits_t = std::allocator_traits<decltype(alloc_)>;
         poiterAlloc_ = traits_t::allocate(alloc_, capacity_);
         // for(std::initializer_list<decltype(this)>::iterator i = list.begin(); i < list.end(); i++) {
 
@@ -222,6 +219,10 @@ public:
         return size_;
     }
 
+    size_t max_size() const {
+        return traits_t::max_size();
+    }
+
 private:
     bool checkCapacity() {
         if (size_ < capacity_) {
@@ -233,4 +234,5 @@ private:
     size_t capacity_ { };
     std::allocator<Type>alloc_;
     Type* poiterAlloc_ { nullptr };
+    using traits_t = std::allocator_traits<decltype(alloc_)>;
 };
