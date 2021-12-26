@@ -218,6 +218,10 @@ public:
         return poiterAlloc_ == nullptr;
     }
 
+    size_t size() const {
+        return size_;
+    }
+
 private:
     bool checkCapacity() {
         if (size_ < capacity_) {
