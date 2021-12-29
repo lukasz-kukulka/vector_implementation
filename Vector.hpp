@@ -277,9 +277,9 @@ public:
         return capacity_;
     }
 
-    // iterator begin() {
-    //     return iterator(*poiterAlloc_);
-    // }
+    iterator begin() {
+        return iterator(*poiterAlloc_);
+    }
 
     // const_iterator cbegin() const {
     //     // TO DO 
