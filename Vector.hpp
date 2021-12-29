@@ -301,9 +301,9 @@ public:
         return end();
     } 
 
-    // reverse_iterator rend() {
-    //     // TO DO 
-    // }
+    reverse_iterator rend() {
+        return begin(); 
+    }
 
     // const_reverse_iterator crend() const {
     //     // TO DO 
