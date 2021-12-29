@@ -152,6 +152,10 @@ public:
         return &ptr_ >= &other.ptr_;
     }
 
+    Iterator operator+(int index) {
+        return ptr_ + index;
+    }
+
     // operator+
     // operator-
 
