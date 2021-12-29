@@ -297,9 +297,9 @@ public:
         return iterator(poiterAlloc_ + size_); 
     } 
 
-    // const_iterator cend() const {
-    //     // TO DO 
-    // } 
+    const_iterator cend() const {
+        return end();
+    } 
 
     // reverse_iterator rend() {
     //     // TO DO 
