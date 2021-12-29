@@ -289,9 +289,9 @@ public:
         return end();
     }
 
-    // const_reverse_iterator crbegin() const {
-    //     // TO DO 
-    // }
+    const_reverse_iterator crbegin() const {
+        return cend();
+    }
 
     iterator end() {
         return iterator(poiterAlloc_ + size_); 
