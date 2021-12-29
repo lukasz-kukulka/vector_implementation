@@ -278,12 +278,12 @@ public:
     }
 
     iterator begin() {
-        return iterator(*poiterAlloc_);
+        return iterator(poiterAlloc_);
     }
 
-    // const_iterator cbegin() const {
-    //     // TO DO 
-    // }
+    const_iterator cbegin() const {
+        return begin();
+    }
 
     // reverse_iterator rbegin() const {
     //     // TO DO 
