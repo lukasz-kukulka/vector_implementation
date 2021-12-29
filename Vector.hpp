@@ -148,8 +148,10 @@ public:
         return &ptr_ > &other.ptr_;
     }
 
-    // operator>
-    // operator>=
+    bool operator>=(const Iterator& other) const {
+        return &ptr_ >= &other.ptr_;
+    }
+
     // operator+
     // operator-
 
