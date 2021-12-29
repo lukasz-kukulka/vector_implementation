@@ -156,10 +156,9 @@ public:
         return ptr_ + other.ptr_;
     }
 
-    // operator+
-    // operator-
-
-
+    Iterator operator-(Iterator other) {
+        return ptr_ - other.ptr_;
+    }
 
 private:
     pointer ptr_;
