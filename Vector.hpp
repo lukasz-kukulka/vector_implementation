@@ -293,9 +293,9 @@ public:
     //     // TO DO 
     // }
 
-    // iterator end() {
-    //     // TO DO 
-    // } 
+    iterator end() {
+        return iterator(poiterAlloc_ + size_); 
+    } 
 
     // const_iterator cend() const {
     //     // TO DO 
