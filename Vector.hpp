@@ -285,9 +285,9 @@ public:
         return begin();
     }
 
-    // reverse_iterator rbegin() const {
-    //     // TO DO 
-    // }
+    reverse_iterator rbegin() {
+        return end();
+    }
 
     // const_reverse_iterator crbegin() const {
     //     // TO DO 
