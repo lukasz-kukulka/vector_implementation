@@ -133,10 +133,9 @@ public:
     }
 
     bool operator!=(const Iterator& other) const {
-        return ptr_ != other.ptr_;
+        return !(*this == other);
     }
 
-    // operator!=
     // operator<
     // operator<=
     // operator>
