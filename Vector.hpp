@@ -297,6 +297,10 @@ public:
         //TO DO 
     }
 
+    void insert(iterator pos, iterator first, iterator last) {
+
+    }
+
         // insert 
         // emplace 
         // erase 
