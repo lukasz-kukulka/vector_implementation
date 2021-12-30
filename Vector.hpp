@@ -289,11 +289,11 @@ public:
         traits_t::destroy(poiterAlloc_);
     }
 
-    iterator insert(iterator pos, const value_type& value) {
+    iterator insert(const_iterator pos, const value_type& value) {
         //TO DO 
     }
 
-    void insert(iterator pos, size_type count, const T& value ) {
+    void insert(const_iterator pos, size_type count, const T& value ) {
         //TO DO 
     }
 
@@ -301,9 +301,10 @@ public:
 
     }
 
-    iterator insert(const_iterator pos, std::initializer_list<T> ilist );
+    iterator insert(const_iterator pos, std::initializer_list<T> list ) {
 
-        // insert 
+    }
+
         // emplace 
         // erase 
         // push_back 
