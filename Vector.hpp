@@ -297,9 +297,11 @@ public:
         //TO DO 
     }
 
-    void insert(iterator pos, iterator first, iterator last) {
+    void insert(const_iterator pos, iterator first, iterator last) {
 
     }
+
+    iterator insert(const_iterator pos, std::initializer_list<T> ilist );
 
         // insert 
         // emplace 
