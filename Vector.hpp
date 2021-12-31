@@ -188,6 +188,7 @@ public:
         for (size_type i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, data); 
         }
+        size_ = size;
     }
     
     template<typename InputIterator, typename = std::_RequireInputIter<InputIterator>>
@@ -295,6 +296,7 @@ public:
 
     void clear() {
         traits_t::destroy(poiterAlloc_);
+        size_ = 0;
     }
 
     iterator insert(const_iterator pos, const value_type& value) {
