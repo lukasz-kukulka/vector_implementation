@@ -126,3 +126,11 @@ TEST_F(TestsVectorClass, callStringVectorSizeShouldBe500) {
     auto expect = 500;
     ASSERT_EQ(stringVectorSizeValue.size(), expect);
 }
+
+TEST_F(TestsVectorClass, allValueInStringVectorFromConstructorWithSizeShouldBeTEST) {
+    auto expect = "TEST";
+    ASSERT_EQ(stringVectorSizeValue[0].getValue(), expect);
+    ASSERT_EQ(stringVectorSizeValue[111].getValue(), expect);
+    ASSERT_EQ(stringVectorSizeValue[333].getValue(), expect);
+    ASSERT_EQ(stringVectorSizeValue[499].getValue(), expect);
+}
