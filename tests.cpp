@@ -25,7 +25,16 @@ struct TestsVectorClass : public ::testing::Test {
     luk::Vector<testClassToVector<int>>intVectorInitList { luk::Vector<testClassToVector<int>>({222, 223, 224, 225, 226, 227, 228, 229, 230, 231})};
     luk::Vector<testClassToVector<std::string>>stringVectorEmpty;
     luk::Vector<testClassToVector<std::string>>stringVectorSizeValue = luk::Vector<testClassToVector<std::string>>(500, std::string("TEST"));
-    luk::Vector<testClassToVector<std::string>>stringVectorInitList { {"TEST001"}, {"TEST002"}, {"TEST003"}, {"TEST004"}, {"TEST005"}, {"TEST006"}, {"TEST007"} };
+    luk::Vector<testClassToVector<std::string>>stringVectorInitList { {"TEST001"}, 
+                                                                      {"TEST002"}, 
+                                                                      {"TEST003"}, 
+                                                                      {"TEST004"}, 
+                                                                      {"TEST005"}, 
+                                                                      {"TEST006"}, 
+                                                                      {"TEST007"} , 
+                                                                      {"TEST008"}, 
+                                                                      {"TEST009"}, 
+                                                                      {"TEST0010"}};
 };
 
 
