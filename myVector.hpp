@@ -58,6 +58,8 @@
 #include <iostream>
 #include <exception>
 
+namespace luk {
+
 template<typename Type, class Allocator = std::allocator<Type>>
 class myVector {
 public:
@@ -266,3 +268,5 @@ private:
     Type* poiterAlloc_ { nullptr };
     using traits_t = std::allocator_traits<decltype(alloc_)>;
 };
+
+} //  end namespace
