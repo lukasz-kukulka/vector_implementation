@@ -161,14 +161,19 @@ public:
 
     constexpr void assign(size_type size, const_reference data) {
         reserve(size);
-        for (auto i = 0; i < size; i++) {
+        for (size_type i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, data); 
         }
-
     }
-
-    constexpr void assign(iterator first, iterator last) {
-        // TO DO 
+    
+    template<typename InputIterator, typename = std::_RequireInputIter<InputIterator>>
+    constexpr void assign(InputIterator first, InputIterator last) {
+        difference_type elementsAmount = last - first;
+        reserve(elementsAmount);
+        std::cout << *first <<'\n';
+        for (auto i = 0; i < elementsAmount; i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + i, &(*(first + i))); 
+        }
     }
 
     constexpr void assign(std::initializer_list<value_type> list ) {

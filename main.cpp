@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 
 int main() {
     std::vector<int> v ({ 1, 1, 3 });
@@ -13,7 +14,11 @@ int main() {
     v.reserve(5);
     std::cout << v.capacity() << " - " << v.size() << '\n';
     std::cout << " ==================================================== " << '\n';
-    luk::myVector<int>v1(1);
+    luk::myVector<std::string>v1({"1"});
+    std::string a = "sss";
+    const std::string extra(6, 'b');
+    v1.assign(extra.begin(), extra.end());
+    std::cout << extra[5] << '\n';
     luk::myVector<int>v2(10, 33);
     luk::myVector<int>v3({12, 22, 44, 66, 77});
 
