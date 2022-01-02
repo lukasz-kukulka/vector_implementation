@@ -70,8 +70,8 @@ public:
       typedef const reference                                                   const_reference;
       typedef std::iterator<std::random_access_iterator_tag, value_type>        iterator;
       typedef const iterator                                                    const_iterator;
-      typedef std::reverse_iterator<const_iterator>	                            const_reverse_iterator;
       typedef std::reverse_iterator<iterator>                                   reverse_iterator;
+      typedef std::reverse_iterator<const_iterator>	                            const_reverse_iterator;
       typedef size_t                                                            size_type;
       typedef ptrdiff_t                                                         difference_type;
       typedef Allocator                                                         allocator_type;
