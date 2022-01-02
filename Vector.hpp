@@ -289,6 +289,14 @@ public:
         traits_t::destroy(poiterAlloc_);
     }
 
+    iterator insert(iterator pos, const value_type& value) {
+        //TO DO 
+    }
+
+    void insert(iterator pos, size_type count, const T& value ) {
+        //TO DO 
+    }
+
         // insert 
         // emplace 
         // erase 
