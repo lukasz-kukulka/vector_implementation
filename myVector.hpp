@@ -63,18 +63,18 @@ namespace luk {
 template<typename Type, class Allocator = std::allocator<Type>>
 class myVector {
 public:
-      typedef Type                                                       value_type;
-      typedef value_type*                                                pointer;
-      typedef const pointer                                              const_pointer;
-      typedef value_type&                                                reference;
-      typedef const reference                                            const_reference;
-      typedef std::iterator<std::random_access_iterator_tag, Type>       iterator;
-      typedef const iterator                                             const_iterator;
-      typedef std::reverse_iterator<const_iterator>	                     const_reverse_iterator;
-      typedef std::reverse_iterator<iterator>                            reverse_iterator;
-      typedef size_t                                                     size_type;
-      typedef ptrdiff_t                                                  difference_type;
-      typedef Allocator                                                  allocator_type;
+      typedef Type                                                              value_type;
+      typedef value_type*                                                       pointer;
+      typedef const pointer                                                     const_pointer;
+      typedef value_type&                                                       reference;
+      typedef const reference                                                   const_reference;
+      typedef std::iterator<std::random_access_iterator_tag, value_type>        iterator;
+      typedef const iterator                                                    const_iterator;
+      typedef std::reverse_iterator<const_iterator>	                            const_reverse_iterator;
+      typedef std::reverse_iterator<iterator>                                   reverse_iterator;
+      typedef size_t                                                            size_type;
+      typedef ptrdiff_t                                                         difference_type;
+      typedef Allocator                                                         allocator_type;
 
 public:
     myVector() {
@@ -83,13 +83,13 @@ public:
     myVector(size_type size) {
         reserve(size);
     }
-    myVector(size_type size, Type element) {
+    myVector(size_type size, value_type element) {
         reserve(size);
         for (size_type i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, element);   
         }
     }
-    myVector(std::initializer_list<Type> list) {
+    myVector(std::initializer_list<value_type> list) {
         reserve(list.size());
         // for(std::initializer_list<decltype(this)>::iterator i = list.begin(); i < list.end(); i++) {
 
@@ -150,7 +150,7 @@ public:
         return *this;
     }
 
-    Type& operator[](const myVector& element) {
+    value_type& operator[](const myVector& element) {
         return *poiterAlloc_[element];
     }
 
@@ -159,11 +159,11 @@ public:
     }
 
 
-    void assign(size_type size, const Type& data) {
+    void assign(size_type size, const value_type& data) {
         // TO DO 
     }
 
-    void assign(const Type& data) {
+    void assign(const value_type& data) {
         // TO DO 
     }
 
@@ -171,47 +171,47 @@ public:
         return capacity_;
     }
 
-    Type* begin() {
+    value_type* begin() {
         // TO DO 
     }
 
-    Type* cbegin() const {
+    value_type* cbegin() const {
         // TO DO 
     }
 
-    Type* rbegin() const {
+    value_type* rbegin() const {
         // TO DO 
     }
 
-    Type* crbegin() const {
+    value_type* crbegin() const {
         // TO DO 
     }
 
-    Type* end() {
+    value_type* end() {
         // TO DO 
     } 
 
-    Type* cend() const {
+    value_type* cend() const {
         // TO DO 
     } 
 
-    Type* rend() {
+    value_type* rend() {
         // TO DO 
     }
 
-    Type* crend() const {
+    value_type* crend() const {
         // TO DO 
     }
 
-    Type front() {
+    value_type front() {
         // TO DO 
     }
 
-    Type back() {
+    value_type back() {
         // TO DO 
     }
 
-    std::allocator<Type> get_allocator() {
+    std::allocator<value_type> get_allocator() {
         return alloc_;
     }
 
@@ -221,7 +221,7 @@ public:
         }
     }
 
-    Type* data() {
+    value_type* data() {
         if (empty()) {
             return &front();
         }
@@ -264,8 +264,8 @@ private:
     }
     size_type size_ { };
     size_type capacity_ { };
-    std::allocator<Type>alloc_;
-    Type* poiterAlloc_ { nullptr };
+    std::allocator<value_type>alloc_;
+    value_type* poiterAlloc_ { nullptr };
     using traits_t = std::allocator_traits<decltype(alloc_)>;
 };
 
