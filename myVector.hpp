@@ -171,35 +171,35 @@ public:
         return capacity_;
     }
 
-    value_type* begin() {
+    pointer begin() {
         // TO DO 
     }
 
-    value_type* cbegin() const {
+    pointer cbegin() const {
         // TO DO 
     }
 
-    value_type* rbegin() const {
+    pointer rbegin() const {
         // TO DO 
     }
 
-    value_type* crbegin() const {
+    pointer crbegin() const {
         // TO DO 
     }
 
-    value_type* end() {
+    pointer end() {
         // TO DO 
     } 
 
-    value_type* cend() const {
+    pointer cend() const {
         // TO DO 
     } 
 
-    value_type* rend() {
+    pointer rend() {
         // TO DO 
     }
 
-    value_type* crend() const {
+    pointer crend() const {
         // TO DO 
     }
 
@@ -221,7 +221,7 @@ public:
         }
     }
 
-    value_type* data() {
+    pointer data() {
         if (empty()) {
             return &front();
         }
@@ -265,7 +265,7 @@ private:
     size_type size_ { };
     size_type capacity_ { };
     std::allocator<value_type>alloc_;
-    value_type* poiterAlloc_ { nullptr };
+    pointer poiterAlloc_ { nullptr };
     using traits_t = std::allocator_traits<decltype(alloc_)>;
 };
 
