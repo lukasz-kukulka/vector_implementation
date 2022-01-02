@@ -159,11 +159,15 @@ public:
     }
 
 
-    void assign(size_type size, const_reference data) {
+    constexpr void assign(size_type size, const_reference data) {
         // TO DO 
     }
 
-    void assign(const_reference data) {
+    constexpr void assign(iterator first, iterator last) {
+        // TO DO 
+    }
+
+    constexpr void assign(std::initializer_list<value_type> list ) {
         // TO DO 
     }
 
