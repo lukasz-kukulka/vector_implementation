@@ -80,12 +80,12 @@ public:
     myVector() {
         
     }
-    myVector(size_t size) {
+    myVector(size_type size) {
         reserve(size);
     }
-    myVector(size_t size, Type element) {
+    myVector(size_type size, Type element) {
         reserve(size);
-        for (size_t i = 0; i < size; i++) {
+        for (size_type i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, element);   
         }
     }
@@ -99,10 +99,10 @@ public:
             traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
             iteratorList++;
         }
-        std::cout << "poiterAlloc_ = " << poiterAlloc_[0] << "       *poiterAlloc_ = " << *poiterAlloc_ << "        &poiterAlloc_ = " << &poiterAlloc_[0] << '\n';  
-        std::cout << "poiterAlloc_ = " << poiterAlloc_[1] << "       *poiterAlloc_ = " << *poiterAlloc_ + 1 << "        &poiterAlloc_ = " << &poiterAlloc_[1000] << '\n';
-        std::cout << "poiterAlloc_ = " << poiterAlloc_[2] << "       *poiterAlloc_ = " << *poiterAlloc_ + 2 << "        &poiterAlloc_ = " << &poiterAlloc_[2] << '\n';  
-        std::cout << capacity() << '\n';
+        // std::cout << "poiterAlloc_ = " << poiterAlloc_[0] << "       *poiterAlloc_ = " << *poiterAlloc_ << "        &poiterAlloc_ = " << &poiterAlloc_[0] << '\n';  
+        // std::cout << "poiterAlloc_ = " << poiterAlloc_[1] << "       *poiterAlloc_ = " << *poiterAlloc_ + 1 << "        &poiterAlloc_ = " << &poiterAlloc_[1000] << '\n';
+        // std::cout << "poiterAlloc_ = " << poiterAlloc_[2] << "       *poiterAlloc_ = " << *poiterAlloc_ + 2 << "        &poiterAlloc_ = " << &poiterAlloc_[2] << '\n';  
+        // std::cout << capacity() << '\n';
     }
     myVector(const myVector& copy) 
         : capacity_(copy.capacity_)
@@ -159,7 +159,7 @@ public:
     }
 
 
-    void assign(size_t size, const Type& data) {
+    void assign(size_type size, const Type& data) {
         // TO DO 
     }
 
@@ -167,7 +167,7 @@ public:
         // TO DO 
     }
 
-    size_t capacity() const{
+    size_type capacity() const{
         return capacity_;
     }
 
@@ -215,7 +215,7 @@ public:
         return alloc_;
     }
 
-    void at(size_t size) {
+    void at(size_type size) {
         if (size > size_) {
             throw std::out_of_range("Out of range");
         }
@@ -232,15 +232,15 @@ public:
         return poiterAlloc_ == nullptr;
     }
 
-    size_t size() const {
+    size_type size() const {
         return size_;
     }
 
-    size_t max_size() const {
+    size_type max_size() const {
         return traits_t::max_size();
     }
 
-    void reserve(size_t space) {
+    void reserve(size_type space) {
         poiterAlloc_ = traits_t::allocate(alloc_, space);
         capacity_ = space;
     }
@@ -262,8 +262,8 @@ private:
         }
         return false;
     }
-    size_t size_ { };
-    size_t capacity_ { };
+    size_type size_ { };
+    size_type capacity_ { };
     std::allocator<Type>alloc_;
     Type* poiterAlloc_ { nullptr };
     using traits_t = std::allocator_traits<decltype(alloc_)>;
