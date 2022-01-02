@@ -150,7 +150,7 @@ public:
         return *this;
     }
 
-    value_type& operator[](const myVector& element) {
+    reference operator[](const myVector& element) {
         return *poiterAlloc_[element];
     }
 
@@ -159,11 +159,11 @@ public:
     }
 
 
-    void assign(size_type size, const value_type& data) {
+    void assign(size_type size, const_reference data) {
         // TO DO 
     }
 
-    void assign(const value_type& data) {
+    void assign(const_reference data) {
         // TO DO 
     }
 
@@ -171,35 +171,35 @@ public:
         return capacity_;
     }
 
-    pointer begin() {
+    iterator begin() {
         // TO DO 
     }
 
-    pointer cbegin() const {
+    const_iterator cbegin() const {
         // TO DO 
     }
 
-    pointer rbegin() const {
+    reverse_iterator rbegin() const {
         // TO DO 
     }
 
-    pointer crbegin() const {
+    const_reverse_iterator crbegin() const {
         // TO DO 
     }
 
-    pointer end() {
+    iterator end() {
         // TO DO 
     } 
 
-    pointer cend() const {
+    const_iterator cend() const {
         // TO DO 
     } 
 
-    pointer rend() {
+    reverse_iterator rend() {
         // TO DO 
     }
 
-    pointer crend() const {
+    const_reverse_iterator crend() const {
         // TO DO 
     }
 
