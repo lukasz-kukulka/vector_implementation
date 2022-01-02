@@ -61,6 +61,20 @@
 template<typename Type, class Allocator = std::allocator<Type>>
 class myVector {
 public:
+      typedef Type                                                       value_type;
+      typedef value_type*                                                pointer;
+      typedef const pointer                                              const_pointer;
+      typedef value_type&                                                reference;
+      typedef const reference                                            const_reference;
+      typedef std::iterator<std::random_access_iterator_tag, Type>       iterator;
+      typedef const iterator                                             const_iterator;
+      typedef std::reverse_iterator<const_iterator>	                     const_reverse_iterator;
+      typedef std::reverse_iterator<iterator>                            reverse_iterator;
+      typedef size_t                                                     size_type;
+      typedef ptrdiff_t                                                  difference_type;
+      typedef Allocator                                                  allocator_type;
+
+public:
     myVector() {
         
     }
@@ -236,6 +250,8 @@ public:
     void clear() {
         traits_t::destroy(poiterAlloc_);
     }
+
+    
 
 private:
     bool checkCapacity() {

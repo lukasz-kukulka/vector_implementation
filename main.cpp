@@ -5,6 +5,7 @@
 
 int main() {
     std::vector<int> v;
+    //auto it = v.end();
     v.reserve(5);
     std::cout << v.capacity() << " - " << v.size() << '\n';
     std::cout << " ==================================================== " << '\n';
