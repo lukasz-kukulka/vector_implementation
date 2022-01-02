@@ -148,19 +148,12 @@ public:
         return *this;
     }
 
-    reference operator[](const myVector& element) {
-        return *poiterAlloc_[element];
+    reference operator[](int element) {
+        return poiterAlloc_[element];
     }
 
     ~myVector() {
         alloc_.deallocate(poiterAlloc_, capacity_);
-    }
-
-    constexpr void initializerListInit(const std::initializer_list<value_type>& list) {
-        reserve(list.size());
-        for(auto iteratorList = 0, i = list.begin(); i < list.end(); i++, iteratorList++) {
-            traits_t::construct(alloc_, poiterAlloc_ + iteratorList, *i); 
-        }
     }
 
     constexpr void assign(size_type size, const_reference data) {
@@ -189,7 +182,7 @@ public:
     }
 
     iterator begin() {
-        // TO DO 
+        //return poiterAlloc_[0];
     }
 
     const_iterator cbegin() const {
@@ -277,6 +270,14 @@ private:
         }
         return false;
     }
+
+    constexpr void initializerListInit(const std::initializer_list<value_type>& list) {
+        reserve(list.size());
+        for(auto iteratorList = 0, i = list.begin(); i < list.end(); i++, iteratorList++) {
+            traits_t::construct(alloc_, poiterAlloc_ + iteratorList, *i); 
+        }
+    }
+
     size_type size_ { };
     size_type capacity_ { };
     std::allocator<value_type>alloc_;

@@ -18,9 +18,10 @@ int main() {
     std::string a = "sss";
     const std::string extra(6, 'b');
     v1.assign(extra.begin(), extra.end());
-    std::cout << extra[5] << '\n';
+    std::cout << v1[5] << '\n';
     luk::myVector<int>v2(10, 33);
     luk::myVector<int>v3({12, 22, 44, 66, 77});
+    std::cout << v3[2] << '\n';
 
     return 0;
 }
