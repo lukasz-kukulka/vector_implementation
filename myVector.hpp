@@ -160,7 +160,11 @@ public:
 
 
     constexpr void assign(size_type size, const_reference data) {
-        // TO DO 
+        reserve(size);
+        for (auto i = 0; i < size; i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + i, data); 
+        }
+
     }
 
     constexpr void assign(iterator first, iterator last) {
@@ -256,8 +260,6 @@ public:
     void clear() {
         traits_t::destroy(poiterAlloc_);
     }
-
-    
 
 private:
     bool checkCapacity() {

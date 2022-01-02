@@ -5,6 +5,10 @@
 
 int main() {
     std::vector<int> v ({ 1, 1, 3 });
+    v.assign(4, 99);
+    for (auto ele: v) {
+        std::cout << ele << '\n';
+    }
     //auto it = v.end();
     v.reserve(5);
     std::cout << v.capacity() << " - " << v.size() << '\n';
