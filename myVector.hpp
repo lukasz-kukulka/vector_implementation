@@ -60,6 +60,7 @@
 
 namespace luk {
 
+template<typename myVector>
 class myIterator {
 public:
 
