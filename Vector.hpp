@@ -1,81 +1,11 @@
 #pragma once
 
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[0] << "       *poiterAlloc_ = " << *poiterAlloc_ << "        &poiterAlloc_ = " << &poiterAlloc_[0] << '\n';
-        // traits_t::construct(alloc_, poiterAlloc_ + 1000, 7);   
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[1] << "       *poiterAlloc_ = " << *poiterAlloc_ + 1 << "        &poiterAlloc_ = " << &poiterAlloc_[1000] << '\n';
-        // traits_t::construct(alloc_, poiterAlloc_ + 2, 22);   
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[2] << "       *poiterAlloc_ = " << *poiterAlloc_ + 2 << "        &poiterAlloc_ = " << &poiterAlloc_[2] << '\n';  
-        // poiterAlloc_ = traits_t::allocate(alloc_, size); 
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[3] << "       *poiterAlloc_ = " << *poiterAlloc_<< "        &poiterAlloc_ = " << &poiterAlloc_[3] << '\n';
-
-
-        // auto iteratorList { 0 };
-        // for (const auto& ele : list) {
-        //     traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
-        //     iteratorList++;
-        // }
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[0] << "       *poiterAlloc_ = " << *poiterAlloc_ << "        &poiterAlloc_ = " << &poiterAlloc_[0] << '\n';  
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[1] << "       *poiterAlloc_ = " << *poiterAlloc_ + 1 << "        &poiterAlloc_ = " << &poiterAlloc_[1000] << '\n';
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[2] << "       *poiterAlloc_ = " << *poiterAlloc_ + 2 << "        &poiterAlloc_ = " << &poiterAlloc_[2] << '\n';  
-        // std::cout << capacity() << '\n';
-
-        // konsruktor pusty DONE
-        // konstruktor z wielkoscia DONE
-        // konstruktor z wielkoscia i inicjalizowanymi elementami DONE
-        // konstruktor initializer list DONE
-        // konstruktor kopiujący DONE
-        // konstruktor przenoszący DONE
-        // operator przypisania kopiujacy DONE
-        // operator przypisania przenoszący DONE
-        // assign 
-        // get_allocator 
-        // Element access 
-        // at 
-        // operator[] 
-        // front 
-        // back 
-        // data 
-        // begin DONE
-        // cbegin 
-        // end DONE
-        // cend 
-        // rbegin 
-        // crbegin 
-        // rend 
-        // crend 
-        // Capacity DONE
-        // empty 
-        // size 
-        // max_size 
-        // reserve 
-        // capacity 
-        // shrink_to_fit         // auto iteratorList { 0 };
-        // for (const auto& ele : list) {
-        //     traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
-        //     iteratorList++;
-        // }
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[0] << "       *poiterAlloc_ = " << *poiterAlloc_ << "        &poiterAlloc_ = " << &poiterAlloc_[0] << '\n';  
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[1] << "       *poiterAlloc_ = " << *poiterAlloc_ + 1 << "        &poiterAlloc_ = " << &poiterAlloc_[1000] << '\n';
-        // std::cout << "poiterAlloc_ = " << poiterAlloc_[2] << "       *poiterAlloc_ = " << *poiterAlloc_ + 2 << "        &poiterAlloc_ = " << &poiterAlloc_[2] << '\n';  
-        // std::cout << capacity() << '\n';
-        // Modifiers 
-        // clear 
-        // insert 
-        // emplace 
-        // erase 
-        // push_back 
-        // emplace_back 
-        // pop_back 
-        // resize 
-        // swap 
-        // wyjatki
-
-#include <initializer_list>
-#include <iterator>
-#include <type_traits>
-#include <memory>
-#include <iostream>
 #include <exception>
+#include <initializer_list>
+#include <iostream>
+#include <iterator>
+#include <memory>
+#include <type_traits>
 
 namespace luk {
 
@@ -358,6 +288,16 @@ public:
     void clear() {
         traits_t::destroy(poiterAlloc_);
     }
+
+        // insert 
+        // emplace 
+        // erase 
+        // push_back 
+        // emplace_back 
+        // pop_back 
+        // resize 
+        // swap 
+        // wyjatki
 
 private:
     bool checkCapacity() {
