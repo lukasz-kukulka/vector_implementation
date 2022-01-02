@@ -91,9 +91,7 @@ public:
     }
     myVector(std::initializer_list<value_type> list) {
         reserve(list.size());
-        for(auto iteratorList = 0, i = list.begin(); i < list.end(); i++, iteratorList++) {
-            traits_t::construct(alloc_, poiterAlloc_ + iteratorList, *i); 
-        }
+        initializerListInit(list);
         // auto iteratorList { 0 };
         // for (const auto& ele : list) {
         //     traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
@@ -158,6 +156,12 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
     }
 
+    constexpr void initializerListInit(const std::initializer_list<value_type>& list) {
+        reserve(list.size());
+        for(auto iteratorList = 0, i = list.begin(); i < list.end(); i++, iteratorList++) {
+            traits_t::construct(alloc_, poiterAlloc_ + iteratorList, *i); 
+        }
+    }
 
     constexpr void assign(size_type size, const_reference data) {
         reserve(size);
@@ -177,7 +181,7 @@ public:
     }
 
     constexpr void assign(std::initializer_list<value_type> list ) {
-        // TO DO 
+        initializerListInit(list);
     }
 
     size_type capacity() const{
