@@ -91,14 +91,14 @@ public:
     }
     myVector(std::initializer_list<value_type> list) {
         reserve(list.size());
-        // for(std::initializer_list<decltype(this)>::iterator i = list.begin(); i < list.end(); i++) {
-
-        // }
-        auto iteratorList { 0 };
-        for (const auto& ele : list) {
-            traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
-            iteratorList++;
+        for(auto iteratorList = 0, i = list.begin(); i < list.end(); i++, iteratorList++) {
+            traits_t::construct(alloc_, poiterAlloc_ + iteratorList, *i); 
         }
+        // auto iteratorList { 0 };
+        // for (const auto& ele : list) {
+        //     traits_t::construct(alloc_, poiterAlloc_ + iteratorList, ele);   
+        //     iteratorList++;
+        // }
         // std::cout << "poiterAlloc_ = " << poiterAlloc_[0] << "       *poiterAlloc_ = " << *poiterAlloc_ << "        &poiterAlloc_ = " << &poiterAlloc_[0] << '\n';  
         // std::cout << "poiterAlloc_ = " << poiterAlloc_[1] << "       *poiterAlloc_ = " << *poiterAlloc_ + 1 << "        &poiterAlloc_ = " << &poiterAlloc_[1000] << '\n';
         // std::cout << "poiterAlloc_ = " << poiterAlloc_[2] << "       *poiterAlloc_ = " << *poiterAlloc_ + 2 << "        &poiterAlloc_ = " << &poiterAlloc_[2] << '\n';  

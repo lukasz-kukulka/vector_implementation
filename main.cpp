@@ -4,7 +4,7 @@
 #include <iostream>
 
 int main() {
-    std::vector<int> v;
+    std::vector<int> v ({ 1, 1, 3 });
     //auto it = v.end();
     v.reserve(5);
     std::cout << v.capacity() << " - " << v.size() << '\n';
