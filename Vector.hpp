@@ -63,7 +63,11 @@ namespace luk {
 template<typename Vector>
 class Iterator {
 public:
-    using value_type                                                    = typename Vector::value_type;
+    using value_type                                                 = typename Vector::value_type;
+    using pointer                                                    = value_type*;
+    using const_pointer                                              = const pointer;
+    using reference                                                  = value_type&;
+    using const_reference                                            = const reference;
 public:
     Iterator(Vector::pointer ptr) 
         :ptr_(ptr)
