@@ -90,6 +90,12 @@ public:
         return *this;
     }
 
+    Iterator operator--(int) {
+        Iterator iterator = *this;
+        --(*this);
+        return iterator;
+    }
+
 
 private:
     pointer ptr_;
