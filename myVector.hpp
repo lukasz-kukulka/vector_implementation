@@ -60,6 +60,16 @@
 
 namespace luk {
 
+class myIterator {
+public:
+
+public:
+
+private:
+
+
+};
+
 template<typename Type, class Allocator = std::allocator<Type>>
 class myVector {
 public:
@@ -68,7 +78,7 @@ public:
       typedef const pointer                                                     const_pointer;
       typedef value_type&                                                       reference;
       typedef const reference                                                   const_reference;
-      typedef std::iterator<std::random_access_iterator_tag, value_type>        iterator;
+      typedef std::iterator<pointer, myVector>                                  iterator;
       typedef const iterator                                                    const_iterator;
       typedef std::reverse_iterator<iterator>                                   reverse_iterator;
       typedef std::reverse_iterator<const_iterator>	                            const_reverse_iterator;
@@ -182,7 +192,7 @@ public:
     }
 
     iterator begin() {
-        //return poiterAlloc_[0];
+        
     }
 
     const_iterator cbegin() const {
