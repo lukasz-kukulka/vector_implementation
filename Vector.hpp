@@ -69,12 +69,12 @@ public:
     using reference                                                  = value_type&;
     using const_reference                                            = const reference;
 public:
-    Iterator(Vector::pointer ptr) 
+    Iterator(pointer ptr) 
         :ptr_(ptr)
     {
     }
 private:
-    Vector::poiter ptr_;
+    pointer ptr_;
 
 };
 
@@ -86,10 +86,10 @@ public:
     using const_pointer                                              = const pointer;
     using reference                                                  = value_type&;
     using const_reference                                            = const reference;
-    // using iterator                                                   = iterator<Vector::pointer>;
-    // using const_iterator                                             = const iterator;
-    // using reverse_iterator                                           = std::reverse_iterator<iterator>;
-    // using const_reverse_iterator                                     = std::reverse_iterator<const_iterator>;
+    using iterator                                                   = Iterator<Vector<value_type>>;
+    using const_iterator                                             = const iterator;
+    using reverse_iterator                                           = std::reverse_iterator<iterator>;
+    using const_reverse_iterator                                     = std::reverse_iterator<const_iterator>;
     using size_type                                                  = size_t;
     using difference_type                                            = ptrdiff_t;
     using allocator_type                                             = Allocator;
