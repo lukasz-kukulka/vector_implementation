@@ -84,6 +84,13 @@ public:
         ++(*this);
         return iterator;
     }
+
+    Iterator& operator--() {
+        ptr_--;
+        return *this;
+    }
+
+
 private:
     pointer ptr_;
 
