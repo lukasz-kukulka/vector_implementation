@@ -63,13 +63,14 @@ namespace luk {
 template<typename Vector>
 class Iterator {
 public:
-    Iterator(Vector::pointer ptr) {
-
+    Iterator(Vector::pointer ptr) 
+        :ptr_(ptr)
+    {
     }
 public:
 
 private:
-
+    Vector::poiter ptr_;
 
 };
 
