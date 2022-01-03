@@ -63,7 +63,7 @@ namespace luk {
 template<typename Vector>
 class Iterator {
 public:
-
+    using value_type                                                    = typename Vector::value_type;
 public:
     Iterator(Vector::pointer ptr) 
         :ptr_(ptr)
@@ -77,18 +77,18 @@ private:
 template<typename Type, class Allocator = std::allocator<Type>>
 class Vector {
 public:
-      typedef Type                                                              value_type;
-      typedef value_type*                                                       pointer;
-      typedef const pointer                                                     const_pointer;
-      typedef value_type&                                                       reference;
-      typedef const reference                                                   const_reference;
-      typedef Iterator<Vector::pointer>                                                  iterator;
-      typedef const iterator                                                    const_iterator;
-      typedef std::reverse_iterator<iterator>                                   reverse_iterator;
-      typedef std::reverse_iterator<const_iterator>	                            const_reverse_iterator;
-      typedef size_t                                                            size_type;
-      typedef ptrdiff_t                                                         difference_type;
-      typedef Allocator                                                         allocator_type;
+    using value_type                                                 = Type;
+    using pointer                                                    = value_type*;
+    using const_pointer                                              = const pointer;
+    using reference                                                  = value_type&;
+    using const_reference                                            = const reference;
+    // using iterator                                                   = iterator<Vector::pointer>;
+    // using const_iterator                                             = const iterator;
+    // using reverse_iterator                                           = std::reverse_iterator<iterator>;
+    // using const_reverse_iterator                                     = std::reverse_iterator<const_iterator>;
+    using size_type                                                  = size_t;
+    using difference_type                                            = ptrdiff_t;
+    using allocator_type                                             = Allocator;
 
 public:
     Vector() {
@@ -195,37 +195,37 @@ public:
         return capacity_;
     }
 
-    iterator begin() {
-        return iterator(*poiterAlloc_);
-    }
+    // iterator begin() {
+    //     return iterator(*poiterAlloc_);
+    // }
 
-    const_iterator cbegin() const {
-        // TO DO 
-    }
+    // const_iterator cbegin() const {
+    //     // TO DO 
+    // }
 
-    reverse_iterator rbegin() const {
-        // TO DO 
-    }
+    // reverse_iterator rbegin() const {
+    //     // TO DO 
+    // }
 
-    const_reverse_iterator crbegin() const {
-        // TO DO 
-    }
+    // const_reverse_iterator crbegin() const {
+    //     // TO DO 
+    // }
 
-    iterator end() {
-        // TO DO 
-    } 
+    // iterator end() {
+    //     // TO DO 
+    // } 
 
-    const_iterator cend() const {
-        // TO DO 
-    } 
+    // const_iterator cend() const {
+    //     // TO DO 
+    // } 
 
-    reverse_iterator rend() {
-        // TO DO 
-    }
+    // reverse_iterator rend() {
+    //     // TO DO 
+    // }
 
-    const_reverse_iterator crend() const {
-        // TO DO 
-    }
+    // const_reverse_iterator crend() const {
+    //     // TO DO 
+    // }
 
     value_type front() {
         // TO DO 

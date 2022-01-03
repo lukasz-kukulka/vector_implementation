@@ -15,7 +15,8 @@ int main() {
     v.reserve(5);
     std::cout << v.capacity() << " - " << v.size() << '\n';
     std::cout << " ==================================================== " << '\n';
-    luk::Vector<std::string>v1({"1"});;
+    luk::Vector<std::string>v1({"1"});
+    // v1.begin();
     luk::Vector<int>v2(10, 33);
     luk::Vector<int>v3({12, 22, 44, 66, 77});
     std::cout << v3[2] << '\n';
