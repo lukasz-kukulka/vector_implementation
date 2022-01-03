@@ -73,6 +73,11 @@ public:
         :ptr_(ptr)
     {
     }
+
+    Iterator& operator++() {
+        ptr_++;
+        return *this;
+    }
 private:
     pointer ptr_;
 
