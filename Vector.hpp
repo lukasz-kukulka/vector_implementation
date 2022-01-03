@@ -117,7 +117,11 @@ public:
     }
 
     reference operator[](int index) {
-        return ptr_[index];
+        return *(ptr_ + index);
+    }
+
+    pointer operator->() {
+        return ptr_;
     }
 
     // operator*
@@ -130,7 +134,6 @@ public:
     // operator>=
     // operator+
     // operator-
-    // operator[]
 
 
 
