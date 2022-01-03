@@ -63,12 +63,12 @@ namespace luk {
 template<typename Vector>
 class Iterator {
 public:
+
+public:
     Iterator(Vector::pointer ptr) 
         :ptr_(ptr)
     {
     }
-public:
-
 private:
     Vector::poiter ptr_;
 
@@ -82,7 +82,7 @@ public:
       typedef const pointer                                                     const_pointer;
       typedef value_type&                                                       reference;
       typedef const reference                                                   const_reference;
-      typedef Iterator<Vector>                                                  iterator;
+      typedef Iterator<Vector::pointer>                                                  iterator;
       typedef const iterator                                                    const_iterator;
       typedef std::reverse_iterator<iterator>                                   reverse_iterator;
       typedef std::reverse_iterator<const_iterator>	                            const_reverse_iterator;
@@ -196,7 +196,7 @@ public:
     }
 
     iterator begin() {
-        
+        return iterator(*poiterAlloc_);
     }
 
     const_iterator cbegin() const {
