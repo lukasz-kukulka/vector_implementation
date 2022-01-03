@@ -124,8 +124,10 @@ public:
         return ptr_;
     }
 
-    // operator*
-    // operator->
+    reference operator*() {
+        return *ptr_;
+    }
+
     // operator==
     // operator!=
     // operator<
