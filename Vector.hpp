@@ -63,7 +63,9 @@ namespace luk {
 template<typename Vector>
 class Iterator {
 public:
-    Iterator(Vector::pointer ptr) {}
+    Iterator(Vector::pointer ptr) {
+
+    }
 public:
 
 private:
@@ -79,7 +81,7 @@ public:
       typedef const pointer                                                     const_pointer;
       typedef value_type&                                                       reference;
       typedef const reference                                                   const_reference;
-      typedef std::iterator<pointer, Vector>                                  iterator;
+      typedef Iterator<Vector>                                                  iterator;
       typedef const iterator                                                    const_iterator;
       typedef std::reverse_iterator<iterator>                                   reverse_iterator;
       typedef std::reverse_iterator<const_iterator>	                            const_reverse_iterator;
