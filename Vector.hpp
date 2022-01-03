@@ -314,7 +314,7 @@ public:
     }
 
     value_type back() {
-        // TO DO 
+         return *(poiterAlloc_ + size - 1); 
     }
 
     std::allocator<value_type> get_allocator() {
