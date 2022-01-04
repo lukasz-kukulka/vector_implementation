@@ -298,12 +298,10 @@ public:
     }
 
     iterator insert(const_iterator pos, const value_type& value) {
-        // if (capacity_ == size_) {
-        //     reserve(capacity + 1);
-        //     auto ptr = traits_t::allocate(alloc_, space);
-        //     alloc_.deallocate(poiterAlloc_, capacity_);
-        // }
-        // traits_t::construct(alloc_, poiterAlloc_ + i, &(*(first + i))); 
+        if (capacity_ == size_) {
+            reserve(capacity + 1);
+        }
+        traits_t::construct(alloc_, poiterAlloc_ + capacity_ - 1, value); 
     }
 
     void insert(const_iterator pos, size_type count, const value_type& value ) {
