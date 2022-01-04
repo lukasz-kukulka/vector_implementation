@@ -287,7 +287,6 @@ public:
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
         capacity_ = space;
-        tempAllocPtr.deallocate(tempAlloc, space); 
     }
 
     void shrink_to_fit() {
