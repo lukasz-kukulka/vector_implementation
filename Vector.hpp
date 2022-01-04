@@ -6,6 +6,7 @@
 #include <iterator>
 #include <memory>
 #include <type_traits>
+#include <utility>
 
 namespace luk {
 
@@ -277,8 +278,16 @@ public:
     }
 
     void reserve(size_type space) {
-        poiterAlloc_ = traits_t::allocate(alloc_, space);
+        std::allocator<value_type>tempAlloc;
+        auto tempAllocPtr = traits_t::allocate(tempAlloc, space);
+        for (size_type i = 0; i < capacity_; i++) {
+            traits_t::construct(tempAlloc, tempAllocPtr + i, *(poiterAlloc_ + i)); 
+        }
+        alloc_.deallocate(poiterAlloc_, capacity_);
+        alloc_ = std::move(tempAlloc); 
+        poiterAlloc_ = std::move(tempAllocPtr);
         capacity_ = space;
+        tempAllocPtr.deallocate(tempAlloc, space); 
     }
 
     void shrink_to_fit() {
@@ -290,7 +299,12 @@ public:
     }
 
     iterator insert(const_iterator pos, const value_type& value) {
-        //TO DO 
+        // if (capacity_ == size_) {
+        //     reserve(capacity + 1);
+        //     auto ptr = traits_t::allocate(alloc_, space);
+        //     alloc_.deallocate(poiterAlloc_, capacity_);
+        // }
+        // traits_t::construct(alloc_, poiterAlloc_ + i, &(*(first + i))); 
     }
 
     void insert(const_iterator pos, size_type count, const T& value ) {
@@ -298,11 +312,11 @@ public:
     }
 
     void insert(const_iterator pos, iterator first, iterator last) {
-
+        //TO DO
     }
 
     iterator insert(const_iterator pos, std::initializer_list<T> list ) {
-
+        //TO DO
     }
 
         // emplace 
