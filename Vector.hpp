@@ -307,7 +307,7 @@ public:
         // traits_t::construct(alloc_, poiterAlloc_ + i, &(*(first + i))); 
     }
 
-    void insert(const_iterator pos, size_type count, const T& value ) {
+    void insert(const_iterator pos, size_type count, const value_type& value ) {
         //TO DO 
     }
 
@@ -315,7 +315,7 @@ public:
         //TO DO
     }
 
-    iterator insert(const_iterator pos, std::initializer_list<T> list ) {
+    iterator insert(const_iterator pos, std::initializer_list<value_type> list ) {
         //TO DO
     }
 
