@@ -342,7 +342,7 @@ public:
     void insert(const_iterator pos, iterator first, iterator last) {
         std::allocator<value_type>tempAlloc;
         size_type reserveSpaceTemp { capacity_ };
-        if (capacity_ == size_) {
+        if (capacity_ < size_ + std::distance(first, last)) {
             reserveSpaceTemp += std::distance(first, last);
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
@@ -363,7 +363,26 @@ public:
     }
 
     iterator insert(const_iterator pos, std::initializer_list<value_type> list ) {
-        //TO DO
+        // std::allocator<value_type>tempAlloc;
+        // size_type reserveSpaceTemp { capacity_ };
+        // if (capacity_ == size_) {
+        //     reserveSpaceTemp += std::distance(first, last);
+        // }
+        // auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
+        // size_type itPos { 0 };
+        // for (const_iterator i = begin(); i < end(); i++) {
+        //     if (i == pos) {
+        //         for (auto j = first; j <= last; j++) {
+        //             traits_t::construct(tempAlloc, tempAllocPtr + itPos, j); 
+        //         }
+        //     } else {
+        //         traits_t::construct(tempAlloc, tempAllocPtr + itPos, *(poiterAlloc_ + itPos));
+        //     }
+        //     itPos++;
+        // }
+        // alloc_.deallocate(poiterAlloc_, capacity_);
+        // alloc_ = std::move(tempAlloc); 
+        // poiterAlloc_ = std::move(tempAllocPtr);
     }
         
         // emplace 
