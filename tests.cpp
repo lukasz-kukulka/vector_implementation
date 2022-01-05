@@ -163,3 +163,8 @@ TEST_F(TestsVectorClass, callThirdElementInVectorStringWithInitializerListConstr
     auto expect = "TEST003";
     ASSERT_EQ(stringVectorInitList[2].getValue(), expect);
 }
+
+TEST_F(TestsVectorClass, callSeventhElementInVectorStringWithInitializerListConstructorShouldBeTEST007) {
+    auto expect = "TEST007";
+    ASSERT_EQ(stringVectorInitList[6].getValue(), expect);
+}
