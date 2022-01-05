@@ -298,15 +298,27 @@ public:
     }
 
     iterator insert(const_iterator pos, const value_type& value) {
+        std::allocator<value_type>tempAlloc;
+        size_t reserveSpaceTemp { capacity_ };
         if (capacity_ == size_) {
-            reserve(capacity + 1);
+            reserveSpaceTemp++;
         }
-        traits_t::construct(alloc_, poiterAlloc_ + capacity_ - 1, value); 
+        auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
+        for (const_iterator i = begin(); i < end(); i++) {
+            if (i == pos) {
+                traits_t::construct(tempAlloc, tempAllocPtr + i, value); 
+            } else {
+                traits_t::construct(tempAlloc, tempAllocPtr + i, *(poiterAlloc_ + i));
+            }
+        }
+        alloc_.deallocate(poiterAlloc_, capacity_);
+        alloc_ = std::move(tempAlloc); 
+        poiterAlloc_ = std::move(tempAllocPtr);
     }
 
     void insert(const_iterator pos, size_type count, const value_type& value ) {
         std::allocator<value_type>tempAlloc;
-        auto tempAllocPtr = traits_t::allocate(tempAlloc, capacity_);
+        auto tempAllocPtr = traits_t::allocate(tempAlloc, capacity_); // zle
         for (const_iterator i = begin(); i < end(); i++) {
             if (i >= pos && i <= pos + count) {
                 traits_t::construct(tempAlloc, tempAllocPtr + i, value); 
@@ -351,8 +363,8 @@ private:
         }
     }
 
-    size_type size_ { };
-    size_type capacity_ { };
+    size_type size_ { 0 };
+    size_type capacity_ { 0 };
     std::allocator<value_type>alloc_;
     pointer poiterAlloc_ { nullptr };
     using traits_t = std::allocator_traits<decltype(alloc_)>;
