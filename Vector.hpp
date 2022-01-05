@@ -318,7 +318,11 @@ public:
 
     void insert(const_iterator pos, size_type count, const value_type& value ) {
         std::allocator<value_type>tempAlloc;
-        auto tempAllocPtr = traits_t::allocate(tempAlloc, capacity_); // zle
+        size_t reserveSpaceTemp { capacity_ };
+        if (capacity_ == size_) {
+            reserveSpaceTemp++;
+        }
+        auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp); // zle
         for (const_iterator i = begin(); i < end(); i++) {
             if (i >= pos && i <= pos + count) {
                 traits_t::construct(tempAlloc, tempAllocPtr + i, value); 
