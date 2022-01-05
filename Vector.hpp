@@ -299,17 +299,19 @@ public:
 
     iterator insert(const_iterator pos, const value_type& value) {
         std::allocator<value_type>tempAlloc;
-        size_t reserveSpaceTemp { capacity_ };
+        size_type reserveSpaceTemp { capacity_ };
         if (capacity_ == size_) {
             reserveSpaceTemp++;
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
-        for (const_iterator i = begin(), size_type itPos = 0; i < end(); i++, itPos++) {
+        size_type itPos { 0 };
+        for (const_iterator i = begin(); i < end(); i++) {
             if (i == pos) {
                 traits_t::construct(tempAlloc, tempAllocPtr + itPos, value); 
             } else {
                 traits_t::construct(tempAlloc, tempAllocPtr + itPos, *(poiterAlloc_ + i));
             }
+            itPos++;
         }
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
@@ -318,17 +320,19 @@ public:
 
     void insert(const_iterator pos, size_type count, const value_type& value ) {
         std::allocator<value_type>tempAlloc;
-        size_t reserveSpaceTemp { capacity_ };
+        size_type reserveSpaceTemp { capacity_ };
         if (capacity_ == size_) {
             reserveSpaceTemp++;
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp); // zle
-        for (const_iterator i = begin(), size_type itPos = 0; i < end(); i++, itPos++) {
+        size_type itPos { 0 };
+        for (const_iterator i = begin(); i < end(); i++) {
             if (i >= pos && i <= pos + count) {
                 traits_t::construct(tempAlloc, tempAllocPtr + itPos, value); 
             } else {
                 traits_t::construct(tempAlloc, tempAllocPtr + itPos, *(poiterAlloc_ + i));
             }
+            itPos++;
         }
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
@@ -336,24 +340,22 @@ public:
     }
 
     void insert(const_iterator pos, iterator first, iterator last) {
-        std::allocator<value_type>tempAlloc;
-        size_t reserveSpaceTemp { capacity_ };
-        if (capacity_ == size_) {
-            reserveSpaceTemp++;
-        }
-        auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp); // zle
-        for (const_iterator i = begin(); i < end(); i++) {
-            if (i == pos) {
-                for (iterator j = first; fi <= last; j++) {
-                    traits_t::construct(tempAlloc, tempAllocPtr + j, *i);
-                }
-            } else {
-                traits_t::construct(tempAlloc, tempAllocPtr + i, *(poiterAlloc_ + i));
-            }
-        }
-        alloc_.deallocate(poiterAlloc_, capacity_);
-        alloc_ = std::move(tempAlloc); 
-        poiterAlloc_ = std::move(tempAllocPtr);
+        // std::allocator<value_type>tempAlloc;
+        // size_t reserveSpaceTemp { capacity_ };
+        // if (capacity_ == size_) {
+        //     reserveSpaceTemp++;
+        // }
+        // auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp); // zle
+        // for (const_iterator i = begin(), size_type itPos = 0; i < end(); i++, itPos++) {
+        //     if (i >= pos && i <= pos + count) {
+        //         traits_t::construct(tempAlloc, tempAllocPtr + itPos, value); 
+        //     } else {
+        //         traits_t::construct(tempAlloc, tempAllocPtr + itPos, *(poiterAlloc_ + i));
+        //     }
+        // }
+        // alloc_.deallocate(poiterAlloc_, capacity_);
+        // alloc_ = std::move(tempAlloc); 
+        // poiterAlloc_ = std::move(tempAllocPtr);
     }
 
     iterator insert(const_iterator pos, std::initializer_list<value_type> list ) {
