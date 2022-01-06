@@ -444,7 +444,17 @@ public:
     }
 
     void push_back(const value_type value) {
-        // to do
+        std::allocator<value_type>tempAlloc;
+        auto tempAllocPtr = traits_t::allocate(tempAlloc, capacity_);
+        size_type itPos { 0 };
+        for (const_iterator i = begin(); i < end(); i++) {
+            traits_t::construct(tempAlloc, tempAllocPtr + itPos, *(poiterAlloc_ + itPos));
+            itPos++;
+        }
+        traits_t::construct(tempAlloc, tempAllocPtr + itPos, value);
+        alloc_.deallocate(poiterAlloc_, capacity_);
+        alloc_ = std::move(tempAlloc); 
+        poiterAlloc_ = std::move(tempAllocPtr); 
     }
 
     void push_back(value_type&& value) {
