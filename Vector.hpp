@@ -458,7 +458,7 @@ public:
     }
 
     void push_back(value_type&& value) {
-        // to do
+        emplace_back(std::move(value));
     }
 
     template<typename... Args>
