@@ -148,3 +148,9 @@ TEST_F(TestsVectorClass, callStringVectorCapacityShouldBe10) {
     auto expect = 10;
     ASSERT_EQ(stringVectorInitList.capacity(), expect);
 }
+
+TEST_F(TestsVectorClass, callStringVectorSizeShouldBe10) {
+    auto expect = 10;
+    ASSERT_EQ(stringVectorInitList.size(), expect);
+}
+
