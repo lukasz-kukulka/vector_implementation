@@ -154,3 +154,7 @@ TEST_F(TestsVectorClass, callStringVectorSizeShouldBe10) {
     ASSERT_EQ(stringVectorInitList.size(), expect);
 }
 
+TEST_F(TestsVectorClass, callFirstElementInVectorStringWithInitializerListConstructorShouldBeTEST001) {
+    auto expect = "TEST001";
+    ASSERT_EQ(stringVectorInitList[0].getValue(), expect);
+}
