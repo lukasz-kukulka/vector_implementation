@@ -322,7 +322,7 @@ public:
         std::allocator<value_type>tempAlloc;
         size_type reserveSpaceTemp { capacity_ };
         if (capacity_ + count < size_) {
-            reserveSpaceTemp += capacity_ + count;
+            reserveSpaceTemp += capacity_ + count;  // to fix
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
         size_type itPos { 0 };
@@ -343,7 +343,7 @@ public:
         std::allocator<value_type>tempAlloc;
         size_type reserveSpaceTemp { capacity_ };
         if (capacity_ < size_ + std::distance(first, last)) {
-            reserveSpaceTemp += std::distance(first, last);
+            reserveSpaceTemp += std::distance(first, last);  // to fix
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
         size_type itPos { 0 };
@@ -366,7 +366,7 @@ public:
         std::allocator<value_type>tempAlloc;
         size_type reserveSpaceTemp { capacity_ };
         if (capacity_ < size_ + list.size()) {
-            reserveSpaceTemp += size_ + list.size(); 
+            reserveSpaceTemp += size_ + list.size(); // to fix
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
         size_type itPos { 0 };
@@ -384,7 +384,9 @@ public:
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
     }
-        
+
+
+
         // emplace 
         // erase 
         // push_back 
