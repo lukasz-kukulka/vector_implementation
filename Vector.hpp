@@ -426,8 +426,11 @@ public:
         // to do
         // add return
     }
-        // emplace_back 
-        // pop_back 
+
+    void pop_back() {
+        // to do
+    }
+
         // resize 
         // swap 
         // split insert
