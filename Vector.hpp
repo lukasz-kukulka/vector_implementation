@@ -443,10 +443,12 @@ public:
         // to do
     }
 
-        // resize 
-        // swap 
+    void swap(Vector& other) {
+        // to do
+        // add return
+    }
+
         // split insert
-        // wyjatki
 
 private:
     bool checkCapacity() {
