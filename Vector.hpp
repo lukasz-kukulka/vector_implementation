@@ -316,6 +316,7 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
+        //add return
     }
 
     void insert(const_iterator pos, size_type count, const value_type& value ) {
@@ -383,11 +384,19 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
+        //add return
     }
-
-
-
-        // emplace 
+    
+    template<typename... Args>
+    iterator emplace(const_iterator pos, Args&&... args) {
+        constexpr size_type argSize = sizeof...(args);
+        if (size_ + argSize < capacity_) {
+            reserve(size_ + argSize);
+        }
+        std::initializer_list<value_type> tempArgsList { args... };
+        auto returnIt = insert(pos, tempArgsList);
+        //add return
+    }
         // erase 
         // push_back 
         // emplace_back 
