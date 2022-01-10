@@ -431,6 +431,10 @@ public:
         // to do
     }
 
+    void resize(size_type count) {
+        // to do
+    }
+
         // resize 
         // swap 
         // split insert
