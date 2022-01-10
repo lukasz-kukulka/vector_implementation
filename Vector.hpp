@@ -399,8 +399,15 @@ public:
     }
 
     iterator erase(iterator pos) {
-        
+        // to do
+        // add return
     }
+
+    iterator erase(iterator first, iterator last) {
+        // to do
+        // add return
+    }
+
         // erase 
         // push_back 
         // emplace_back 
