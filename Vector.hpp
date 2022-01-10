@@ -397,6 +397,10 @@ public:
         auto returnIt = insert(pos, tempArgsList);
         //add return
     }
+
+    iterator erase(iterator pos) {
+        
+    }
         // erase 
         // push_back 
         // emplace_back 
