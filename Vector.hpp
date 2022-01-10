@@ -393,7 +393,7 @@ public:
         if (size_ + argSize < capacity_) {
             reserve(size_ + argSize);
         }
-        std::initializer_list<value_type> tempArgsList { args... };
+        std::initializer_list<value_type> tempArgsList { std::forward<value_type>(args...) };
         auto returnIt = insert(pos, tempArgsList);
         //add return
     }
