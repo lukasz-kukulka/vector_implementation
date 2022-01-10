@@ -420,6 +420,12 @@ public:
     void emplace_back(Args&&... args) {
         // to do
     }
+
+    template<typename... Args>
+    reference emplace_back(Args&&... args) {
+        // to do
+        // add return
+    }
         // emplace_back 
         // pop_back 
         // resize 
