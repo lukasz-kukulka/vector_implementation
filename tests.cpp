@@ -116,3 +116,8 @@ TEST_F(TestsVectorClass, callTenthElementInVectorWithInitializerListConstructorS
     auto expect = 231;
     ASSERT_EQ(intVectorInitList[9].getValue(), expect);
 }
+
+TEST_F(TestsVectorClass, callStringVectorCapacityShouldBe500) {
+    auto expect = 500;
+    ASSERT_EQ(stringVectorSizeValue.capacity(), expect);
+}
