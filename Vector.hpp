@@ -411,7 +411,11 @@ public:
     void push_back(const value_type value) {
         // to do
     }
-        // push_back 
+
+    void push_back(value_type&& value) {
+        // to do
+    }
+ 
         // emplace_back 
         // pop_back 
         // resize 
