@@ -415,7 +415,11 @@ public:
     void push_back(value_type&& value) {
         // to do
     }
- 
+
+    template<typename... Args>
+    void emplace_back(Args&&... args) {
+        // to do
+    }
         // emplace_back 
         // pop_back 
         // resize 
