@@ -28,6 +28,7 @@ struct TestsVectorClass : public ::testing::Test {
     luk::Vector<testClassToVector<std::string>>stringVectorInitList { {"TEST001"}, {"TEST002"}, {"TEST003"}, {"TEST004"}, {"TEST005"}, {"TEST006"}, {"TEST007"} };
 };
 
+
 // check constructors
 
 TEST_F(TestsVectorClass, callIntVectorCapacityShouldBeZero) {

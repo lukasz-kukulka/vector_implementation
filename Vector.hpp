@@ -122,16 +122,19 @@ public:
         for (size_type i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, 0);   
         }
+        size_ = size;
     }
     Vector(size_type size, value_type element) {
         reserve(size);
         for (size_type i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, element);   
         }
+        size_ = size;
     }
     Vector(std::initializer_list<value_type> list) {
         reserve(list.size());
         initializerListInit(list);
+        size_ = list.size();
     }
     Vector(const Vector& copy) 
         : capacity_(copy.capacity_)
