@@ -436,7 +436,11 @@ public:
     }
 
     void resize(size_type count, value_type value = value_type()) {
-        
+        // to do
+    }
+
+    void resize(size_type count, const_reference value) {
+        // to do
     }
 
         // resize 
