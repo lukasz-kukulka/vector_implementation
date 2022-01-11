@@ -456,11 +456,14 @@ public:
 
     template<typename... Args>
     void emplace_back(Args&&... args) {
-        // constexpr size_type argSize = sizeof...(args);
-        // if (size_ + argSize < capacity_) {
-        //     reserve(size_ + argSize);
-        // }
-        // std::initializer_list<value_type> tempArgsList { std::forward<value_type>(args...) };
+        if (capacity_ < size + (sizeof...(args))) {
+            reserve(size + (sizeof...(args)));
+        }
+        std::initializer_list<value_type> tempArgsList { std::forward<value_type>(args...) };
+        for (auto i + tempArgsList.begin(); i < tempArgsList.end(); i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + size_, value);
+            size++;
+        }
     }
 
     template<typename... Args>
@@ -491,6 +494,7 @@ public:
     }
 
         // split insert
+        // sparwdzic size czy zwiekszam i capacity
 
 private:
     bool checkCapacity() {
