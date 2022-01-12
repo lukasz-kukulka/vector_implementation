@@ -199,6 +199,7 @@ public:
         for (auto i = 0; i < elementsAmount; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, &(*(first + i))); 
         }
+        size_ = elementsAmount;
     }
 
     constexpr void assign(std::initializer_list<value_type> list ) {
