@@ -319,7 +319,7 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
-        size++;
+        size_++;
         return pos;
     }
 
@@ -339,6 +339,7 @@ public:
             }
             itPos++;
         }
+        size_ = size_ + count;
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
