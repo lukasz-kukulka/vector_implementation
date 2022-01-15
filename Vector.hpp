@@ -363,6 +363,7 @@ public:
             }
             itPos++;
         }
+        size_ = size_ + std::distance(first, last);
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
