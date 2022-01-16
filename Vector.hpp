@@ -393,6 +393,7 @@ public:
         if (list.size() == 0) {
             return pos;
         }
+        size_ = size_ + list.size();
         return ++pos;
     }
     
