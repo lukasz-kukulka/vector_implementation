@@ -422,6 +422,7 @@ public:
             }
             itPos++;
         }
+        size_--;
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
