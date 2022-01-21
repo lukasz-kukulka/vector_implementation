@@ -502,8 +502,12 @@ public:
     }
 
     void swap(Vector& other) {
-        // to do
-        // add return
+        auto tempPoiterAlloc = poiterAlloc_;
+        poiterAlloc_ = other.poiterAlloc_;
+        other.poiterAlloc_ = tempPoiterAlloc;
+        auto tempAlloc = alloc_;
+        alloc_ = other.alloc_;
+        other.alloc_ = tempAlloc;
     }
 
         // split insert
