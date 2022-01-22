@@ -491,11 +491,14 @@ public:
     }
 
     void resize(size_type count, value_type value = value_type()) {
-        // to do
-    }
-
-    void resize(size_type count, const_reference value) {
-        // to do
+        if (count < size_) {
+            traits_t::destroy(poiterAlloc_ + (size_ - (size_ - count)));
+            size_ = count;
+        } else {
+            reserve(count);
+            for (auto i = 0; i < size_ - count; i++)
+            traits_t::construct(alloc_, poiterAlloc_ + size + i, value);
+        }
     }
 
     void swap(Vector& other) {
