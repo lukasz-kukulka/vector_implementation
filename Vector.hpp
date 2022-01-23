@@ -398,7 +398,7 @@ public:
         }
         std::initializer_list<value_type> tempArgsList { std::forward<value_type>(args...) };
         auto returnIt = insert(pos, tempArgsList);
-        //add return
+        return ++pos;
     }
 
     iterator erase(iterator pos) {
