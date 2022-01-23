@@ -316,14 +316,14 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
-        //add return
+        return pos;
     }
 
     void insert(const_iterator pos, size_type count, const value_type& value ) {
         std::allocator<value_type>tempAlloc;
         size_type reserveSpaceTemp { capacity_ };
         if (capacity_ + count < size_) {
-            reserveSpaceTemp += capacity_ + count;  // to fix
+            reserveSpaceTemp += capacity_ + count;
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
         size_type itPos { 0 };
@@ -344,7 +344,7 @@ public:
         std::allocator<value_type>tempAlloc;
         size_type reserveSpaceTemp { capacity_ };
         if (capacity_ < size_ + std::distance(first, last)) {
-            reserveSpaceTemp += std::distance(first, last);  // to fix
+            reserveSpaceTemp += std::distance(first, last);
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
         size_type itPos { 0 };
@@ -367,7 +367,7 @@ public:
         std::allocator<value_type>tempAlloc;
         size_type reserveSpaceTemp { capacity_ };
         if (capacity_ < size_ + list.size()) {
-            reserveSpaceTemp += size_ + list.size(); // to fix
+            reserveSpaceTemp += size_ + list.size();
         }
         auto tempAllocPtr = traits_t::allocate(tempAlloc, reserveSpaceTemp);
         size_type itPos { 0 };
