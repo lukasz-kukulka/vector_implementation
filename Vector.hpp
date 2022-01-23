@@ -384,7 +384,10 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);
-        //add return
+        if (list.size() == 0) {
+            return pos;
+        }
+        return ++pos;
     }
     
     template<typename... Args>
