@@ -422,11 +422,25 @@ public:
     }
 
     iterator erase(iterator first, iterator last) {
-        // for (auto j = first; j <= last; j++) {
-        //             traits_t::construct(tempAlloc, tempAllocPtr + itPos, *j); 
-        //         }
-        // to do
-        // add return
+        iterator tempIt = nullptr;
+        std::allocator<value_type>tempAlloc;
+        auto tempAllocPtr = traits_t::allocate(tempAlloc, capacity_);
+        size_type itPos { 0 };
+        for (const_iterator i = begin(); i < end(); i++) {
+            if (i == first) {
+                for (auto j = first; j <= last; j++) {
+                    i++;
+                }
+                tempIt = i;
+            } else {
+                traits_t::construct(tempAlloc, tempAllocPtr + itPos, *(poiterAlloc_ + itPos));
+            }
+            itPos++;
+        }
+        alloc_.deallocate(poiterAlloc_, capacity_);
+        alloc_ = std::move(tempAlloc); 
+        poiterAlloc_ = std::move(tempAllocPtr);
+        return tempIt; 
     }
 
     void push_back(const value_type value) {
