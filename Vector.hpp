@@ -457,6 +457,7 @@ public:
             reserve(size + 1);
         }
         traits_t::construct(alloc_, poiterAlloc_ + size_, value);
+        size++;
     }
 
     void push_back(value_type&& value) {
