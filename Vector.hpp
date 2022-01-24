@@ -496,6 +496,7 @@ public:
         } else {
             reserve(count);
             traits_t::construct(alloc_, poiterAlloc_ + size, 0);
+            size_ = count;
         }
 
     }
