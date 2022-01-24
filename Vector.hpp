@@ -478,8 +478,8 @@ public:
         auto itReturn = poiterAlloc_ + size_ + 1;
         for (auto i = tempArgsList.begin(); i < tempArgsList.end(); i++) {
             traits_t::construct(alloc_, poiterAlloc_ + size_, *tempArgsList);
-            size++;
         }
+        size+= (sizeof...(args));
         return itReturn;
     }
 
