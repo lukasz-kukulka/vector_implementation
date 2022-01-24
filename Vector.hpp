@@ -293,6 +293,7 @@ public:
 
     void shrink_to_fit() {
         alloc_.deallocate(poiterAlloc_[size_ - 1], capacity_ - size_);
+        capacity_ = size_;
     }
 
     void clear() {
