@@ -509,6 +509,7 @@ public:
             reserve(count);
             for (auto i = 0; i < size_ - count; i++)
             traits_t::construct(alloc_, poiterAlloc_ + size + i, value);
+            size_ = count;
         }
     }
 
