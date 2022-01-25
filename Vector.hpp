@@ -474,12 +474,13 @@ public:
     }
 
     void pop_back() {
-        traits_t::destroy(size_ - 1);
+        traits_t::destroy(poiterAlloc_ + (size_ - 1));
         size--;
+        
     }
 
     void resize(size_type count) {
-        // to do
+        
     }
 
     void resize(size_type count, value_type value = value_type()) {

@@ -6,7 +6,7 @@
 
 int main() {
     std::vector<int> v ({ 1, 1, 3 });
-    v.pop_back();
+    v.resize(1);
     std::cout << v.capacity() << " - " << v.size() << '\n';
     std::cout << " ==================================================== " << '\n';
     luk::Vector<std::string>v1({"1"});
