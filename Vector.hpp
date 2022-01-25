@@ -523,9 +523,6 @@ public:
         other.alloc_ = tempAlloc;
     }
 
-        // split insert
-        // sparwdzic size czy zwiekszam i capacity
-
 private:
     bool checkCapacity() {
         if (size_ < capacity_) {
