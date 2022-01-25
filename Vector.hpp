@@ -456,14 +456,7 @@ public:
 
     template<typename... Args>
     void emplace_back(Args&&... args) {
-        if (capacity_ < size + (sizeof...(args))) {
-            reserve(size + (sizeof...(args)));
-        }
-        std::initializer_list<value_type> tempArgsList { std::forward<value_type>(args...) };
-        for (auto i = tempArgsList.begin(); i < tempArgsList.end(); i++) {
-            traits_t::construct(alloc_, poiterAlloc_ + size_, *tempArgsList);
-            size++;
-        }
+        emplace_back(std::forward<value_type>(args...));
     }
 
     template<typename... Args>
