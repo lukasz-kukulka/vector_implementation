@@ -20,6 +20,7 @@ private:
 
 struct TestsVectorClass : public ::testing::Test {
     luk::Vector<testClassToVector<int>>intVectorEmpty;
-    luk::Vector<testClassToVector<int>>intVectorSizeValue { luk::Vector<testClassToVector<int>>(50) };
+    luk::Vector<testClassToVector<int>>intVectorSize { luk::Vector<testClassToVector<int>>(50) };
+    luk::Vector<testClassToVector<int>>intVectorSizeValue { luk::Vector<testClassToVector<int>>(50, 111) };
 
 };
