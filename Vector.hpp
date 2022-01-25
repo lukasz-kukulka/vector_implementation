@@ -474,7 +474,8 @@ public:
     }
 
     void pop_back() {
-        // to do
+        traits_t::destroy(size_ - 1);
+        size--;
     }
 
     void resize(size_type count) {

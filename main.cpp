@@ -6,13 +6,7 @@
 
 int main() {
     std::vector<int> v ({ 1, 1, 3 });
-    auto aaa = v.begin();
-    aaa++;
-    v.assign(4, 99);
-    for (auto ele: v) {
-        std::cout << ele << '\n';
-    }
-    v.reserve(5);
+    v.pop_back();
     std::cout << v.capacity() << " - " << v.size() << '\n';
     std::cout << " ==================================================== " << '\n';
     luk::Vector<std::string>v1({"1"});
