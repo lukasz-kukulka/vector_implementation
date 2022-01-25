@@ -19,5 +19,6 @@ private:
 };
 
 struct TestsVectorClass : public ::testing::Test {
-    
+    luk::Vector<testClassToVector<int>>intVectorEmpty;
+
 };
