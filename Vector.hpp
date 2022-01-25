@@ -460,16 +460,24 @@ public:
             reserve(size + (sizeof...(args)));
         }
         std::initializer_list<value_type> tempArgsList { std::forward<value_type>(args...) };
-        for (auto i + tempArgsList.begin(); i < tempArgsList.end(); i++) {
-            traits_t::construct(alloc_, poiterAlloc_ + size_, value);
+        for (auto i = tempArgsList.begin(); i < tempArgsList.end(); i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + size_, *tempArgsList);
             size++;
         }
     }
 
     template<typename... Args>
     reference emplace_back(Args&&... args) {
-        // to do
-        // add return
+        if (capacity_ < size + (sizeof...(args))) {
+            reserve(size + (sizeof...(args)));
+        }
+        std::initializer_list<value_type> tempArgsList { std::forward<value_type>(args...) };
+        auto itReturn = poiterAlloc_ + size_ + 1;
+        for (auto i = tempArgsList.begin(); i < tempArgsList.end(); i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + size_, *tempArgsList);
+            size++;
+        }
+        return itReturn;
     }
 
     void pop_back() {
