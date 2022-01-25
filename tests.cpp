@@ -5,18 +5,19 @@
 
 #include "Vector.hpp"
 
+template <typename Type>
 class testClassToVector {
 public:
-    testClassToVector(int value) : value_(value) 
+    testClassToVector(Type value) : value_(value) 
     {
     }
 
-    int getValue() { return value_; }
+    Type getValue() { return value_; }
 
 private:
-    int value_ { };
+    Type value_ { };
 };
 
 struct TestsVectorClass : public ::testing::Test {
-
+    
 };
