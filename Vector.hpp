@@ -480,7 +480,14 @@ public:
     }
 
     void resize(size_type count) {
-        
+        if (count < size_) {
+            traits_t::destroy(poiterAlloc_ + (size_ - (size_ - count)));
+            size_ = count;
+        } else {
+            reserve(count);
+            traits_t::construct(alloc_, poiterAlloc_ + size, 0);
+        }
+
     }
 
     void resize(size_type count, value_type value = value_type()) {
