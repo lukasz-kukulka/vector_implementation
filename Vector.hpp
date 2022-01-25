@@ -118,6 +118,10 @@ public:
     }
     Vector(size_type size) {
         reserve(size);
+        reserve(size);
+        for (size_type i = 0; i < size; i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + i, 0);   
+        }
     }
     Vector(size_type size, value_type element) {
         reserve(size);
