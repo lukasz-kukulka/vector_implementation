@@ -120,9 +120,6 @@ public:
     Vector(size_type size) {
         reserve(size);
         for (size_type i = 0; i < size; i++) {
-            // if (typeid(value_type) == typeid(std::string)) {
-            //     traits_t::construct(alloc_, poiterAlloc_ + i, 45);   
-            // }
             traits_t::construct(alloc_, poiterAlloc_ + i, 0);   
         }
     }

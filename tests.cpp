@@ -19,9 +19,6 @@ private:
     Type value_ { };
 };
 struct TestsVectorClass : public ::testing::Test {
-    
-
-
     luk::Vector<testClassToVector<int>>intVectorEmpty;
     luk::Vector<testClassToVector<int>>intVectorSize { luk::Vector<testClassToVector<int>>(50) };
     luk::Vector<testClassToVector<int>>intVectorSizeValue { luk::Vector<testClassToVector<int>>(99, 111) };
@@ -36,4 +33,12 @@ TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBeZero)
     ASSERT_EQ(intVectorSize[10].getValue(), expect);
     ASSERT_EQ(intVectorSize[20].getValue(), expect);
     ASSERT_EQ(intVectorSize[49].getValue(), expect);
+}
+
+TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBe111) {
+    auto expect = 111;
+    ASSERT_EQ(intVectorSize[0].getValue(), expect);
+    ASSERT_EQ(intVectorSize[33].getValue(), expect);
+    ASSERT_EQ(intVectorSize[66].getValue(), expect);
+    ASSERT_EQ(intVectorSize[98].getValue(), expect);
 }
