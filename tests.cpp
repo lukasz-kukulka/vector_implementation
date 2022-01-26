@@ -23,8 +23,8 @@ struct TestsVectorClass : public ::testing::Test {
     luk::Vector<testClassToVector<int>>intVectorSize { luk::Vector<testClassToVector<int>>(50) };
     luk::Vector<testClassToVector<int>>intVectorSizeValue { luk::Vector<testClassToVector<int>>(99, 111) };
     luk::Vector<testClassToVector<int>>intVectorInitList { luk::Vector<testClassToVector<int>>({222, 223, 224, 225, 226, 227, 228, 229, 230, 231})};
-    luk::Vector<testClassToVector<std::string>>intVectorSize { luk::Vector<testClassToVector<std::string>>(100) };
-
+    luk::Vector<testClassToVector<std::string>>stringVectorSize = luk::Vector<testClassToVector<std::string>>(400);
+    luk::Vector<testClassToVector<std::string>>stringVectorSize = luk::Vector<testClassToVector<std::string>>(500, std::string("TEST"));
 };
 
 TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBeZero) {
