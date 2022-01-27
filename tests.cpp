@@ -50,6 +50,11 @@ TEST_F(TestsVectorClass, callStringVectorSizeShouldBeZero) {
     ASSERT_EQ(stringVectorEmpty.size(), expect);
 }
 
+TEST_F(TestsVectorClass, callIntVectorCapacityShouldBe50) {
+    auto expect = 50;
+    ASSERT_EQ(intVectorSize.capacity(), expect);
+}
+
 TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBeZero) {
     auto expect = 0;
     ASSERT_EQ(intVectorSize[0].getValue(), expect);
