@@ -83,5 +83,10 @@ TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBe111) 
     ASSERT_EQ(intVectorSizeValue[0].getValue(), expect);
     ASSERT_EQ(intVectorSizeValue[33].getValue(), expect);
     ASSERT_EQ(intVectorSizeValue[66].getValue(), expect);
-    ASSERT_EQ(intVectorSizeValue[97].getValue(), expect);
+    ASSERT_EQ(intVectorSizeValue[98].getValue(), expect);
+}
+
+TEST_F(TestsVectorClass, callIntVectorCapacityShouldBe10) {
+    auto expect = 10;
+    ASSERT_EQ(intVectorInitList.capacity(), expect);
 }
