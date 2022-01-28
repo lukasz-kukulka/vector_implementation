@@ -110,3 +110,8 @@ TEST_F(TestsVectorClass, callSeventhElementInVectorWithInitializerListConstructo
     auto expect = 228;
     ASSERT_EQ(intVectorInitList[6].getValue(), expect);
 }
+
+TEST_F(TestsVectorClass, callTenthElementInVectorWithInitializerListConstructorShouldBe231) {
+    auto expect = 231;
+    ASSERT_EQ(intVectorInitList[9].getValue(), expect);
+}
