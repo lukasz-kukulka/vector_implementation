@@ -90,3 +90,8 @@ TEST_F(TestsVectorClass, callIntVectorCapacityShouldBe10) {
     auto expect = 10;
     ASSERT_EQ(intVectorInitList.capacity(), expect);
 }
+
+TEST_F(TestsVectorClass, callIntVectorSizeShouldBe10) {
+    auto expect = 10;
+    ASSERT_EQ(intVectorInitList.size(), expect);
+}
