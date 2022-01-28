@@ -95,3 +95,8 @@ TEST_F(TestsVectorClass, callIntVectorSizeShouldBe10) {
     auto expect = 10;
     ASSERT_EQ(intVectorInitList.size(), expect);
 }
+
+TEST_F(TestsVectorClass, callFirstElementInVectorWithInitializerListConstructorShouldBe222) {
+    auto expect = 222;
+    ASSERT_EQ(intVectorInitList[0].getValue(), expect);
+}
