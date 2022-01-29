@@ -35,6 +35,11 @@ TEST_F(TestsVectorClass, callIntVectorCapacityShouldBeZero) {
     ASSERT_EQ(intVectorEmpty.capacity(), expect);
 }
 
+TEST_F(TestsVectorClass, callStringVectorCapacityShouldBeZero) {
+    auto expect = 0;
+    ASSERT_EQ(stringVectorEmpty.capacity(), expect);
+}
+
 TEST_F(TestsVectorClass, callIntVectorSizeShouldBeZero) {
     auto expect = 0;
     ASSERT_EQ(intVectorEmpty.size(), expect);
