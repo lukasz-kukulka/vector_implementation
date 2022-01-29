@@ -50,8 +50,8 @@ TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBeZero)
 
 TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBe111) {
     auto expect = 111;
-    ASSERT_EQ(intVectorSize[0].getValue(), expect);
-    ASSERT_EQ(intVectorSize[33].getValue(), expect);
-    ASSERT_EQ(intVectorSize[66].getValue(), expect);
-    ASSERT_EQ(intVectorSize[98].getValue(), expect);
+    ASSERT_EQ(intVectorSizeValue[0].getValue(), expect);
+    ASSERT_EQ(intVectorSizeValue[33].getValue(), expect);
+    ASSERT_EQ(intVectorSizeValue[66].getValue(), expect);
+    ASSERT_EQ(intVectorSizeValue[97].getValue(), expect);
 }
