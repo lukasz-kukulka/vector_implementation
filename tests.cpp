@@ -28,6 +28,18 @@ struct TestsVectorClass : public ::testing::Test {
     luk::Vector<testClassToVector<std::string>>stringVectorInitList { {"TEST001"}, {"TEST002"}, {"TEST003"}, {"TEST004"}, {"TEST005"}, {"TEST006"}, {"TEST007"} };
 };
 
+// check constructors
+
+TEST_F(TestsVectorClass, callIntVectorCapacityShouldBeZero) {
+    auto expect = 0;
+    ASSERT_EQ(intVectorEmpty.capacity(), expect);
+}
+
+TEST_F(TestsVectorClass, callIntVectorSizeShouldBeZero) {
+    auto expect = 0;
+    ASSERT_EQ(intVectorEmpty.size(), expect);
+}
+
 TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBeZero) {
     auto expect = 0;
     ASSERT_EQ(intVectorSize[0].getValue(), expect);
@@ -42,9 +54,4 @@ TEST_F(TestsVectorClass, allValueInIntVectorFromConstructorWithSizeShouldBe111) 
     ASSERT_EQ(intVectorSize[33].getValue(), expect);
     ASSERT_EQ(intVectorSize[66].getValue(), expect);
     ASSERT_EQ(intVectorSize[98].getValue(), expect);
-}
-
-TEST_F(TestsVectorClass, callIntVectorCapacityShouldBeZero) {
-    auto expect = 0;
-    ASSERT_EQ(intVectorEmpty.capacity(), expect);
 }
