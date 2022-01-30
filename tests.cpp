@@ -232,3 +232,8 @@ TEST_F(TestsVectorClass, callSizeFunctionShouldReturnRightSize) {
     luk::Vector<testClassToVector<int>> newVector(33, 9999);
     ASSERT_EQ(newVector.size(), expect);
 }
+
+TEST_F(TestsVectorClass, callIteratorBeginShouldReturnFirsElement) {
+    auto expect = 222;
+    ASSERT_EQ(intVectorInitList.begin()->getValue(), expect);
+}
