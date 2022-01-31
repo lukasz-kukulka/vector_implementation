@@ -199,3 +199,13 @@ TEST_F(TestsVectorClass, callMoveComparisonOperatorShouldReturnRightValue) {
     ASSERT_EQ(intVectorInitList.size(), 0);
     ASSERT_EQ(intVectorInitList.capacity(), 0);
 }
+
+TEST_F(TestsVectorClass, callAssignWithInitListFunctionShouldChangeVectorValue) {
+    auto expect = 5;
+    intVectorInitList.assign({ 5, 6, 7 });
+    ASSERT_EQ(intVectorInitList[0].getValue(), expect);
+    expect = 6;
+    ASSERT_EQ(intVectorInitList[1].getValue(), expect);
+    expect = 7;
+    ASSERT_EQ(intVectorInitList[2].getValue(), expect);
+}

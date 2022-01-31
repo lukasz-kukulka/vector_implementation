@@ -195,7 +195,7 @@ public:
         alloc_.deallocate(poiterAlloc_, capacity_);
     }
 
-    constexpr void assign(size_type size, const_reference data) {
+    void assign(size_type size, reference data) {
         reserve(size);
         for (size_type i = 0; i < size; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, data); 
@@ -204,7 +204,7 @@ public:
     }
     
     template<typename InputIterator, typename = std::_RequireInputIter<InputIterator>>
-    constexpr void assign(InputIterator first, InputIterator last) {
+    void assign(InputIterator first, InputIterator last) {
         difference_type elementsAmount = last - first;
         reserve(elementsAmount);
         std::cout << *first <<'\n';
@@ -214,7 +214,7 @@ public:
         size_ = elementsAmount;
     }
 
-    constexpr void assign(std::initializer_list<value_type> list ) {
+    void assign(std::initializer_list<value_type> list ) {
         initializerListInit(list);
     }
 
