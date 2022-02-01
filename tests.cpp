@@ -209,3 +209,10 @@ TEST_F(TestsVectorClass, callAssignWithInitListFunctionShouldChangeVectorValue) 
     expect = 7;
     ASSERT_EQ(intVectorInitList[2].getValue(), expect);
 }
+
+TEST_F(TestsVectorClass, callAssignWithSizeAndValueFunctionShouldChangeVectorValue) {
+    testClassToVector<int> myValue = 876;
+    auto expect = 876;
+    intVectorSizeValue.assign(6, myValue);
+    ASSERT_EQ(intVectorSizeValue[0].getValue(), expect);
+}
