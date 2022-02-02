@@ -216,3 +216,13 @@ TEST_F(TestsVectorClass, callAssignWithSizeAndValueFunctionShouldChangeVectorVal
     intVectorSizeValue.assign(6, myValue);
     ASSERT_EQ(intVectorSizeValue[0].getValue(), expect);
 }
+
+///////////////////////////////////////
+// dodać test z assign i iteratorami //
+///////////////////////////////////////
+
+TEST_F(TestsVectorClass, callCapacityFunctionShouldReturnRightCapacity) {
+    auto expect = 10;
+    luk::Vector<testClassToVector<int>> newVector(10, 9999);
+    ASSERT_EQ(newVector.capacity(), expect);
+}
