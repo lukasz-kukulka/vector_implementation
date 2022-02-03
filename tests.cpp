@@ -226,3 +226,9 @@ TEST_F(TestsVectorClass, callCapacityFunctionShouldReturnRightCapacity) {
     luk::Vector<testClassToVector<int>> newVector(10, 9999);
     ASSERT_EQ(newVector.capacity(), expect);
 }
+
+TEST_F(TestsVectorClass, callSizeFunctionShouldReturnRightSize) {
+    auto expect = 33;
+    luk::Vector<testClassToVector<int>> newVector(33, 9999);
+    ASSERT_EQ(newVector.size(), expect);
+}
