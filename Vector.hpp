@@ -140,13 +140,10 @@ public:
     {
         size_ = copy.size_;
         capacity_ = copy.capacity_;
-        std::cout << "1\n";
         reserve(copy.capacity_);
-        std::cout << "C-TOR COPY\n";
         for (size_type i = 0; i < size_; i++) {
             traits_t::construct(alloc_, poiterAlloc_ + i, *(copy.poiterAlloc_ + i));   
         }
-        std::cout << "C-TOR COPY\n";
     }
 
     Vector(const Vector&& move) noexcept
@@ -194,7 +191,6 @@ public:
 
     ~Vector() {
         alloc_.deallocate(poiterAlloc_, capacity_);
-        //std::cout << "DES\n";
     }
 
     constexpr void assign(size_type size, const_reference data) {
@@ -296,9 +292,9 @@ public:
     void reserve(size_type space) {
         std::allocator<value_type>tempAlloc;
         auto tempAllocPtr = traits_t::allocate(tempAlloc, space);
-        for (size_type i = 0; i < capacity_; i++) {
-            traits_t::construct(tempAlloc, tempAllocPtr + i, *(poiterAlloc_ + i)); 
-        }
+        // for (size_type i = 0; i < capacity_; i++) {
+        //     traits_t::construct(tempAlloc, tempAllocPtr + i, *(poiterAlloc_ + i)); 
+        // }
         alloc_.deallocate(poiterAlloc_, capacity_);
         alloc_ = std::move(tempAlloc); 
         poiterAlloc_ = std::move(tempAllocPtr);

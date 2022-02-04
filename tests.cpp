@@ -175,8 +175,6 @@ TEST_F(TestsVectorClass, callSeventhElementInVectorStringWithInitializerListCons
 }
 
 TEST_F(TestsVectorClass, callCopyConstructorShouldReturnRightResult) {
-    std::cout << "LAST\n";
     auto copyVector(TestsVectorClass::intVectorSizeValue);
-    std::cout << "capacity: " << copyVector.capacity() << "        size: " << copyVector.size() << "-----\n";
-    ASSERT_EQ(copyVector[0].getValue(), intVectorSizeValue[0].getValue());
+    ASSERT_EQ(copyVector[11].getValue(), intVectorSizeValue[22].getValue());
 }
