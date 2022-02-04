@@ -24,6 +24,10 @@ set(TEST_LIST
     tests.cpp
 )
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
 add_executable(${PROJECT_NAME} main.cpp)
 target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror -Wpedantic -Wextra)
 target_link_libraries(${PROJECT_NAME})

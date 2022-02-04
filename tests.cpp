@@ -11,6 +11,11 @@ class testClassToVector {
 public:
     testClassToVector(Type value) : value_(value) 
     {
+        //std::cout << "CONSTRUCTOR\n";
+    }
+    ~testClassToVector()
+    {
+        //std::cout << "DES\n";
     }
 
     Type getValue() { return value_; }
@@ -167,4 +172,11 @@ TEST_F(TestsVectorClass, callThirdElementInVectorStringWithInitializerListConstr
 TEST_F(TestsVectorClass, callSeventhElementInVectorStringWithInitializerListConstructorShouldBeTEST007) {
     auto expect = "TEST007";
     ASSERT_EQ(stringVectorInitList[6].getValue(), expect);
+}
+
+TEST_F(TestsVectorClass, callCopyConstructorShouldReturnRightResult) {
+    std::cout << "LAST\n";
+    auto copyVector(TestsVectorClass::intVectorSizeValue);
+    std::cout << "capacity: " << copyVector.capacity() << "        size: " << copyVector.size() << "-----\n";
+    ASSERT_EQ(copyVector[0].getValue(), intVectorSizeValue[0].getValue());
 }
