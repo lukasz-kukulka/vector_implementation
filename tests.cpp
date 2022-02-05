@@ -179,4 +179,8 @@ TEST_F(TestsVectorClass, callCopyConstructorShouldReturnRightResult) {
     ASSERT_EQ(copyVector[11].getValue(), intVectorSizeValue[22].getValue());
 }
 
-
+TEST_F(TestsVectorClass, callMoveConstructorShouldReturnCorrectValue) {
+    auto copyVector(intVectorInitList);
+    auto moveVector(std::move(intVectorInitList));
+    ASSERT_EQ(moveVector[0].getValue(), copyVector[0].getValue());
+}
