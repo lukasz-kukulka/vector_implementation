@@ -178,3 +178,5 @@ TEST_F(TestsVectorClass, callCopyConstructorShouldReturnRightResult) {
     auto copyVector(TestsVectorClass::intVectorSizeValue);
     ASSERT_EQ(copyVector[11].getValue(), intVectorSizeValue[22].getValue());
 }
+
+

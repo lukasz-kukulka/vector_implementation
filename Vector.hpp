@@ -146,14 +146,13 @@ public:
         }
     }
 
-    Vector(const Vector&& move) noexcept
+    Vector(Vector&& move) noexcept
         : capacity_(move.capacity_)
         , alloc_(move.alloc_)
         , poiterAlloc_(move.poiterAlloc_)
         , size_(move.size_)
     {
         std::cout << "C-TOR MOVE\n";
-        move.alloc_ = 0;
         move.capacity_ = 0;
         move.poiterAlloc_ = nullptr;
         move.size_ = 0;
