@@ -159,7 +159,8 @@ public:
     }
 
     Vector& operator=(const Vector& copy) 
-    {    
+    {   
+        std::cout << "OPERATOR = COPY\n";
         capacity_ = copy.capacity_;
         alloc_ = copy.alloc_;
         poiterAlloc_ = copy.poiterAlloc_;
@@ -168,6 +169,7 @@ public:
     }
 
     Vector& operator=(const Vector&& move) noexcept {
+        std::cout << "OPERATOR = MOVE\n";
         if (this != move) {
             if (capacity_ < 0) {
                 alloc_.deallocate(poiterAlloc_, capacity_);

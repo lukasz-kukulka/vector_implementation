@@ -184,3 +184,9 @@ TEST_F(TestsVectorClass, callMoveConstructorShouldReturnCorrectValue) {
     auto moveVector(std::move(intVectorInitList));
     ASSERT_EQ(moveVector[0].getValue(), copyVector[0].getValue());
 }
+
+TEST_F(TestsVectorClass, callComparisonOperatorShouldReturnCorrectValue) {
+    luk::Vector<testClassToVector<int>> newVector;
+    newVector = intVectorInitList;
+    ASSERT_EQ(newVector[1].getValue(), intVectorInitList[1].getValue());
+}
