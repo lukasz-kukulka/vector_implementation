@@ -162,9 +162,11 @@ public:
     {   
         std::cout << "OPERATOR = COPY\n";
         capacity_ = copy.capacity_;
-        alloc_ = copy.alloc_;
-        poiterAlloc_ = copy.poiterAlloc_;
         size_ = copy.size_;
+        reserve(capacity_);
+        for (size_type i = 0; i < size_; i++) {
+            traits_t::construct(alloc_, poiterAlloc_ + i, *(copy.poiterAlloc_ + i));   
+        }
         return *this;
     }
 
