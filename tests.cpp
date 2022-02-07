@@ -190,3 +190,10 @@ TEST_F(TestsVectorClass, callComparisonOperatorShouldReturnCorrectValue) {
     newVector = intVectorInitList;
     ASSERT_EQ(newVector[1].getValue(), intVectorInitList[1].getValue());
 }
+
+TEST_F(TestsVectorClass, callMoveComparisonOperatorShouldReturnRightValue) {
+    auto expect = 222;
+    luk::Vector<testClassToVector<int>> newVector;
+    newVector = (std::move(intVectorInitList));
+    ASSERT_EQ(newVector[0].getValue(), expect);
+}

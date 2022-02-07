@@ -170,7 +170,7 @@ public:
         return *this;
     }
 
-    Vector& operator=(const Vector&& move) noexcept {
+    Vector& operator=(Vector&& move) noexcept {
         std::cout << "OPERATOR = MOVE\n";
         if (this != move) {
             if (capacity_ < 0) {
