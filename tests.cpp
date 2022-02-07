@@ -196,4 +196,6 @@ TEST_F(TestsVectorClass, callMoveComparisonOperatorShouldReturnRightValue) {
     luk::Vector<testClassToVector<int>> newVector;
     newVector = (std::move(intVectorInitList));
     ASSERT_EQ(newVector[0].getValue(), expect);
+    ASSERT_EQ(intVectorInitList.size(), 0);
+    
 }
