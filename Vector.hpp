@@ -180,7 +180,6 @@ public:
             alloc_ = move.alloc_;
             poiterAlloc_ = move.poiterAlloc_;
             size_ = move.size_;
-            move.alloc_ = 0;
             move.capacity_ = 0;
             move.poiterAlloc_ = nullptr;
             move.size_ = 0;
