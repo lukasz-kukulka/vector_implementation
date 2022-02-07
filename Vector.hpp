@@ -172,7 +172,7 @@ public:
 
     Vector& operator=(Vector&& move) noexcept {
         std::cout << "OPERATOR = MOVE\n";
-        if (this != move) {
+        if (this != &move) {
             if (capacity_ < 0) {
                 alloc_.deallocate(poiterAlloc_, capacity_);
             }
