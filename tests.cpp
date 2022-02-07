@@ -197,5 +197,5 @@ TEST_F(TestsVectorClass, callMoveComparisonOperatorShouldReturnRightValue) {
     newVector = (std::move(intVectorInitList));
     ASSERT_EQ(newVector[0].getValue(), expect);
     ASSERT_EQ(intVectorInitList.size(), 0);
-    
+    ASSERT_EQ(intVectorInitList.capacity(), 0);
 }
