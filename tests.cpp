@@ -237,3 +237,4 @@ TEST_F(TestsVectorClass, callIteratorBeginShouldReturnFirsElement) {
     auto expect = 222;
     ASSERT_EQ(intVectorInitList.begin()->getValue(), expect);
 }
+

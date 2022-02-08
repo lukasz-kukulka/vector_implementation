@@ -9,6 +9,8 @@
 #include <type_traits>
 #include <utility>
 
+// dodać bool operator
+
 namespace luk {
 
 template<typename Vector>
@@ -19,8 +21,13 @@ public:
     using const_pointer                                              = const pointer;
     using reference                                                  = value_type&;
     using const_reference                                            = const reference;
+    using size_type                                                  = size_t;
 
 public:
+    Iterator()
+    {
+    }
+    
     Iterator(pointer ptr) 
         :ptr_(ptr)
     {
@@ -92,8 +99,12 @@ public:
         return ptr_ - other.ptr_;
     }
 
+    Iterator operator-(size_type value) {
+        return ptr_ - 1;
+    }
+
 private:
-    pointer ptr_;
+    pointer ptr_ { nullptr };
 
 };
 
