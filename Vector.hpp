@@ -27,7 +27,7 @@ public:
     Iterator()
     {
     }
-    
+
     Iterator(pointer ptr) 
         :ptr_(ptr)
     {
@@ -95,12 +95,16 @@ public:
         return ptr_ + other.ptr_;
     }
 
+    Iterator operator+(size_type value) {
+        return ptr_ + value;
+    }
+
     Iterator operator-(Iterator other) {
         return ptr_ - other.ptr_;
     }
 
     Iterator operator-(size_type value) {
-        return ptr_ - 1;
+        return ptr_ - value;
     }
 
 private:
