@@ -138,18 +138,18 @@ public:
 
     ReverseIterator operator++(int) {
         Iterator iterator = *this;
-        ++(*this);
+        --(*this);
         return iterator;
     }
 
     ReverseIterator& operator--() {
-        ptr_--;
+        ptr_++;
         return *this;
     }
 
     Iterator operator--(int) {
         Iterator iterator = *this;
-        --(*this);
+        ++(*this);
         return iterator;
     }
 
