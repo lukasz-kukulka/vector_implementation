@@ -112,7 +112,16 @@ private:
 
 };
 
+template<typename Vector>
 class ReverseIterator {
+public:
+    using value_type                                                 = typename Vector::value_type;
+    using pointer                                                    = value_type*;
+    using const_pointer                                              = const pointer;
+    using reference                                                  = value_type&;
+    using const_reference                                            = const reference;
+    using size_type                                                  = size_t;
+    
 public:
     ReverseIterator()
     {
