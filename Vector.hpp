@@ -127,12 +127,13 @@ public:
     {
     }
 
-    Iterator(pointer ptr) 
+    ReverseIterator(pointer ptr) 
         :ptr_(ptr)
     {
     }
 
 private:
+    pointer ptr_ { nullptr };
 };
 template<typename Type, class Allocator = std::allocator<Type>>
 class Vector {
