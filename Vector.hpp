@@ -132,6 +132,11 @@ public:
     {
     }
 
+    Iterator& operator++() {
+        ptr_--;
+        return *this;
+    }
+
 private:
     pointer ptr_ { nullptr };
 };
