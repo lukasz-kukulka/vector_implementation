@@ -112,6 +112,14 @@ private:
 
 };
 
+class ReverseIterator {
+public:
+    ReverseIterator()
+    {
+    }
+
+private:
+};
 template<typename Type, class Allocator = std::allocator<Type>>
 class Vector {
 public:
@@ -122,8 +130,8 @@ public:
     using const_reference                                            = const reference;
     using iterator                                                   = Iterator<Vector<value_type>>;
     using const_iterator                                             = const iterator;
-    using reverse_iterator                                           = std::reverse_iterator<iterator>;
-    using const_reverse_iterator                                     = std::reverse_iterator<const_iterator>;
+    // using reverse_iterator                                           = std::reverse_iterator<value_type>;
+    // using const_reverse_iterator                                     = std::reverse_iterator<value_type>;
     using size_type                                                  = size_t;
     using difference_type                                            = ptrdiff_t;
     using allocator_type                                             = Allocator;
@@ -245,13 +253,13 @@ public:
         return begin();
     }
 
-    reverse_iterator rbegin() {
-        return end();
-    }
+    // reverse_iterator rbegin() {
+    //     return begin();
+    // }
 
-    const_reverse_iterator crbegin() const {
-        return cend();
-    }
+    // const_reverse_iterator crbegin() const {
+    //     return cend();
+    // }
 
     iterator end() {
         return iterator(poiterAlloc_ + size_); 
@@ -261,13 +269,13 @@ public:
         return end();
     } 
 
-    reverse_iterator rend() {
-        return begin(); 
-    }
+    // reverse_iterator rend() {
+    //     return begin(); 
+    // }
 
-    const_reverse_iterator crend() const {
-        return cbegin();  
-    }
+    // const_reverse_iterator crend() const {
+    //     return cbegin();  
+    // }
 
     value_type front() {
         return *poiterAlloc_; 
