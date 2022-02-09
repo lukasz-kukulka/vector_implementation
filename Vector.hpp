@@ -10,7 +10,6 @@
 #include <utility>
 
 // dodać bool operator
-
 namespace luk {
 
 template<typename Vector>
@@ -112,10 +111,10 @@ private:
 
 };
 
-template<typename Vector>
-class ReverseIterator : public Iterator{
+template<typename Type>
+class ReverseIterator : public Iterator<Type> {
 public:
-    using value_type                                                 = typename Vector::value_type;
+    using value_type                                                 = Type;
     using pointer                                                    = value_type*;
     using const_pointer                                              = const pointer;
     using reference                                                  = value_type&;
