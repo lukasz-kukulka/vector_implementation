@@ -121,9 +121,14 @@ public:
     using reference                                                  = value_type&;
     using const_reference                                            = const reference;
     using size_type                                                  = size_t;
-    
+
 public:
     ReverseIterator()
+    {
+    }
+
+    Iterator(pointer ptr) 
+        :ptr_(ptr)
     {
     }
 
