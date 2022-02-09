@@ -113,7 +113,7 @@ private:
 };
 
 template<typename Vector>
-class ReverseIterator {
+class ReverseIterator : public Iterator{
 public:
     using value_type                                                 = typename Vector::value_type;
     using pointer                                                    = value_type*;
