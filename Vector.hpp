@@ -142,6 +142,11 @@ public:
         return iterator;
     }
 
+    ReverseIterator& operator--() {
+        ptr_--;
+        return *this;
+    }
+
 private:
     pointer ptr_ { nullptr };
 };
