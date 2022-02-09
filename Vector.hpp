@@ -132,9 +132,15 @@ public:
     {
     }
 
-    Iterator& operator++() {
+    ReverseIterator& operator++() {
         ptr_--;
         return *this;
+    }
+
+    ReverseIterator operator++(int) {
+        Iterator iterator = *this;
+        ++(*this);
+        return iterator;
     }
 
 private:
