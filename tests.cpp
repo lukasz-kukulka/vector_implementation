@@ -313,3 +313,11 @@ TEST_F(TestsVectorClass, callSizeMethodShouldReturnSizeOfVector) {
     auto valueOne = intVectorInitList.size();
     ASSERT_EQ(valueOne, expect);
 }
+
+TEST_F(TestsVectorClass, callMaxSizeMethodShouldReturnMaxSizeOfVector) {
+    // 4611686018427387903 built as 64-bit target
+    // 1073741823 built as 32-bit target
+    auto expect = 4611686018427387903;
+    auto valueOne = intVectorInitList.max_size();
+    ASSERT_EQ(expect, valueOne);
+}
