@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iterator>
 #include <memory>
+#include <numeric>
 #include <string>
 #include <type_traits>
 #include <utility>
@@ -348,8 +349,8 @@ public:
         return size_;
     }
 
-    size_type max_size() const {
-        return traits_t::max_size();
+    size_type max_size() const {;
+        return traits_t::max_size(alloc_);
     }
 
     void reserve(size_type space) {
