@@ -297,3 +297,13 @@ TEST_F(TestsVectorClass, callEmptyMethodShouldReturnTrueIfVectorIsEmpty) {
     auto value = intVectorEmpty.empty();
     ASSERT_EQ(value, expect);
 }
+
+TEST_F(TestsVectorClass, callEmptyMethodShouldReturnFalseIfVectorIsNotEmpty) {
+    auto expect = false;
+    auto valueOne = intVectorInitList.empty();
+    ASSERT_EQ(valueOne, expect);
+    auto valueTwo = intVectorSize.empty();
+    ASSERT_EQ(valueTwo, expect);
+    auto valueThree = intVectorSizeValue.empty();
+    ASSERT_EQ(valueThree, expect);
+}
