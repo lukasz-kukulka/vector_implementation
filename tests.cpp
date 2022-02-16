@@ -291,3 +291,9 @@ TEST_F(TestsVectorClass, callDataMethodShouldReturnNullptrIfVectorIsEmpty) {
     auto value = intVectorEmpty.data();
     ASSERT_EQ(value, expect);
 }
+
+TEST_F(TestsVectorClass, callEmptyMethodShouldReturnTrueIfVectorIsEmpty) {
+    auto expect = true;
+    auto value = intVectorEmpty.empty();
+    ASSERT_EQ(value, expect);
+}
