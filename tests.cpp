@@ -285,3 +285,9 @@ TEST_F(TestsVectorClass, callDataMethodShouldReturnPointerToFirsElement) {
     auto value = intVectorInitList.data();
     ASSERT_EQ(value->getValue() , expect);
 }
+
+TEST_F(TestsVectorClass, callDataMethodShouldReturnNullptrIfVectorIsEmpty) {
+    auto expect = nullptr;
+    auto value = intVectorEmpty.data();
+    ASSERT_EQ(value, expect);
+}
