@@ -337,7 +337,7 @@ public:
     }
 
     pointer data() {
-        return empty() ? nullptr : front();
+        return empty() ? nullptr : poiterAlloc_;
     }
 
     bool empty() {
