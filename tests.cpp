@@ -279,3 +279,9 @@ TEST_F(TestsVectorClass, callBackMethodShouldReturnLastValue) {
 ///////////////////////////////////////
 // dodać asercje z wyjatkiem at      //
 ///////////////////////////////////////
+
+TEST_F(TestsVectorClass, callDataMethodShouldReturnPointerToFirsElement) {
+    auto expect = 222;
+    auto value = intVectorInitList.data();
+    ASSERT_EQ(value->getValue() , expect);
+}
