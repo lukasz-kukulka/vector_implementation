@@ -271,3 +271,11 @@ TEST_F(TestsVectorClass, callBackMethodShouldReturnLastValue) {
     auto value = intVectorInitList.back();
     ASSERT_EQ(value.getValue(), expect);
 }
+
+///////////////////////////////////////
+// dodać testy get_alocator          //
+///////////////////////////////////////
+
+///////////////////////////////////////
+// dodać asercje z wyjatkiem at      //
+///////////////////////////////////////

@@ -337,10 +337,7 @@ public:
     }
 
     pointer data() {
-        if (empty()) {
-            return &front();
-        }
-        return nullptr;
+        return empty() ? nullptr : &front();
     }
 
     bool empty() {
