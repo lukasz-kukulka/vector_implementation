@@ -91,7 +91,8 @@ public:
     }
 
     Iterator operator+(Iterator other) {
-        return ptr_ + other.ptr_;
+
+        return ptr_ + std::distance(other.ptr_, ptr_);
     }
 
     Iterator operator+(size_type value) {
@@ -147,10 +148,14 @@ public:
         return *this;
     }
 
-    Iterator operator--(int) {
+    ReverseIterator operator--(int) {
         Iterator iterator = *this;
         ++(*this);
         return iterator;
+    }
+
+    ReverseIterator operator+(ReverseIterator other) {
+        return ptr_ - other.ptr_;
     }
 
 private:

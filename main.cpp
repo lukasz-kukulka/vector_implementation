@@ -5,7 +5,8 @@
 #include <string>
 
 int main() {
-    // std::vector<int> v ({ 1, 1, 3 });
+    std::vector<int> v ({ 1, 2, 3, 4, 5 });
+    std::cout << *(v.rend() - 2) << std::endl;
     // std::vector<int> v33 (50);
     // v.resize(22);
     // v.clear();
