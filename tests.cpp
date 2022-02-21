@@ -238,6 +238,12 @@ TEST_F(TestsVectorClass, callIteratorBeginShouldReturnFirsElement) {
     ASSERT_EQ(intVectorInitList.begin()->getValue(), expect);
 }
 
+TEST_F(TestsVectorClass, callIteratorCBeginShouldReturnFirsElement) {
+    auto expect = 222;
+    auto getIterator = intVectorInitList.cbegin();
+    ASSERT_EQ(getIterator->getValue(), expect);
+}
+
 TEST_F(TestsVectorClass, callIteratorEndShouldReturnLastElement) {
     auto expect = 231;
     auto getIterator = intVectorInitList.end() - 1;

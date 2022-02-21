@@ -290,7 +290,7 @@ public:
         return iterator(poiterAlloc_);
     }
 
-    const_iterator cbegin() const {
+    const_iterator cbegin() {
         return begin();
     }
 
