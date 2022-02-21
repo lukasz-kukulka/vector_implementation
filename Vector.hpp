@@ -306,7 +306,7 @@ public:
         return iterator(poiterAlloc_ + size_); 
     } 
 
-    const_iterator cend() const {
+    const_iterator cend() {
         return end();
     } 
 

@@ -247,3 +247,9 @@ TEST_F(TestsVectorClass, callIteratorEndShouldReturnLastElement) {
 ///////////////////////////////////////
 // dodać testy z reverse iteratorami //
 ///////////////////////////////////////
+
+TEST_F(TestsVectorClass, callIteratorCEndShouldReturnLastElement) {
+    auto expect = 231;
+    auto getIterator = intVectorInitList.cend();
+    ASSERT_EQ((getIterator - 1)->getValue(), expect);
+}
