@@ -15,7 +15,7 @@ namespace luk {
 template<typename Vector>
 class Iterator {
 public:
-    using value_type                                                 = typename Vector::value_type;
+    using value_type                                                 = Vector::value_type;
     using pointer                                                    = value_type*;
     using const_pointer                                              = const pointer;
     using reference                                                  = value_type&;
@@ -171,8 +171,8 @@ public:
     using const_reference                                            = const reference;
     using iterator                                                   = Iterator<Vector<value_type>>;
     using const_iterator                                             = const iterator;
-    // using reverse_iterator                                           = std::reverse_iterator<value_type>;
-    // using const_reverse_iterator                                     = std::reverse_iterator<value_type>;
+    using reverse_iterator                                           = ReverseIterator<value_type>;
+    using const_reverse_iterator                                     = const reverse_iterator;
     using size_type                                                  = size_t;
     using difference_type                                            = ptrdiff_t;
     using allocator_type                                             = Allocator;
