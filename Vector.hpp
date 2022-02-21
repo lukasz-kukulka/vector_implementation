@@ -323,7 +323,7 @@ public:
     }
 
     value_type back() {
-         return *(poiterAlloc_ + size - 1); 
+         return *(poiterAlloc_ + size_ - 1); 
     }
 
     std::allocator<value_type> get_allocator() {

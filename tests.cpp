@@ -265,3 +265,9 @@ TEST_F(TestsVectorClass, callFrontMethodShouldReturnFirstValue) {
     auto value = intVectorInitList.front();
     ASSERT_EQ(value.getValue(), expect);
 }
+
+TEST_F(TestsVectorClass, callBackMethodShouldReturnLastValue) {
+    auto expect = 231;
+    auto value = intVectorInitList.back();
+    ASSERT_EQ(value.getValue(), expect);
+}
