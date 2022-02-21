@@ -259,3 +259,9 @@ TEST_F(TestsVectorClass, callIteratorCEndShouldReturnLastElement) {
     auto getIterator = intVectorInitList.cend();
     ASSERT_EQ((getIterator - 1)->getValue(), expect);
 }
+
+TEST_F(TestsVectorClass, callFrontMethodShouldReturnFirstValue) {
+    auto expect = 222;
+    auto value = intVectorInitList.front();
+    ASSERT_EQ(value.getValue(), expect);
+}
