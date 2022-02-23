@@ -1,3 +1,7 @@
+My own implementation vector class
+
+
+// NOTE
 Homework
 vector - klasa szablonowa
 
